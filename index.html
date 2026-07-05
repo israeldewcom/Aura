@@ -3687,35 +3687,28 @@
         .post-card {
             margin-bottom: 1.5rem;
             transition: transform 0.2s;
-            border-radius: var(--radius);
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 1rem;
         }
         .post-card:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow2);
         }
         .post-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
         .post-author-avatar {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #000;
             flex-shrink: 0;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            cursor: pointer;
         }
         .post-author-avatar img {
             width: 100%;
@@ -3723,28 +3716,10 @@
             border-radius: 50%;
             object-fit: cover;
         }
-        .post-author-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .post-author-info strong {
-            font-size: .9rem;
-            display: block;
-            cursor: pointer;
-        }
-        .post-author-info strong:hover {
-            color: var(--primary);
-        }
-        .post-author-info .post-date {
-            font-size: .7rem;
-            color: var(--text3);
-        }
         .post-title {
-            font-size: 1.1rem;
-            margin: 0.4rem 0;
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
             cursor: pointer;
-            font-weight: 700;
-            line-height: 1.3;
         }
         .post-title:hover {
             color: var(--primary);
@@ -3752,38 +3727,13 @@
         .post-image {
             max-width: 100%;
             border-radius: var(--radius-sm);
-            margin: 0.6rem 0;
+            margin: 0.75rem 0;
         }
         .post-content {
             font-size: .88rem;
             line-height: 1.7;
             color: var(--text2);
-            margin: .4rem 0;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        .post-content .post-content-expanded {
-            display: none;
-        }
-        .post-content.expanded .post-content-expanded {
-            display: inline;
-        }
-        .post-content .post-content-preview {
-            display: inline;
-        }
-        .post-content.expanded .post-content-preview {
-            display: none;
-        }
-        .post-content .post-content-toggle {
-            color: var(--primary);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: .85rem;
-            margin-left: .3rem;
-            display: inline-block;
-        }
-        .post-content .post-content-toggle:hover {
-            text-decoration: underline;
+            margin: .5rem 0;
         }
         .post-content img {
             max-width: 100%;
@@ -3803,99 +3753,67 @@
             display: flex;
             gap: 1rem;
             color: var(--text3);
-            font-size: 0.78rem;
-            margin: 0.6rem 0;
+            font-size: 0.85rem;
+            margin: 0.75rem 0;
             flex-wrap: wrap;
-            padding: 0.3rem 0;
-            border-top: 1px solid rgba(128, 128, 128, .06);
-            border-bottom: 1px solid rgba(128, 128, 128, .06);
         }
         .post-stats span {
             display: flex;
             align-items: center;
             gap: .3rem;
         }
-        .post-stats .stat-icon {
-            font-size: .85rem;
-        }
         .post-actions {
             display: flex;
-            gap: 0.25rem;
-            padding-top: 0.6rem;
-            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border);
+            padding-top: 0.75rem;
         }
-        .post-actions .action-btn {
-            flex: 1;
-            min-width: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.6rem;
-            border-radius: 8px;
-            font-size: .8rem;
-            font-weight: 600;
-            color: var(--text3);
-            cursor: pointer;
-            transition: all .2s;
-            background: transparent;
-            border: none;
-            min-height: 36px;
-        }
-        .post-actions .action-btn:hover {
-            background: rgba(128, 128, 128, .08);
-            color: var(--text2);
-        }
-        .post-actions .action-btn .btn-icon {
-            font-size: 1.1rem;
-            width: auto;
-            height: auto;
+        .btn-like,
+        .btn-comment,
+        .btn-share {
             background: none;
             border: none;
-            color: inherit;
-            padding: 0;
+            color: var(--text2);
+            cursor: pointer;
+            transition: color 0.2s;
+            font-size: .82rem;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
         }
-        .post-actions .action-btn.liked {
+        .btn-like:hover {
             color: var(--danger);
         }
-        .post-actions .action-btn.liked .btn-icon {
+        .btn-comment:hover {
+            color: var(--primary);
+        }
+        .btn-share:hover {
+            color: var(--accent);
+        }
+        .btn-like.liked {
             color: var(--danger);
-        }
-        .post-actions .action-btn .action-label {
-            font-size: .78rem;
-        }
-        @media(max-width:480px) {
-            .post-actions .action-btn .action-label {
-                display: none;
-            }
-            .post-actions .action-btn {
-                min-width: 44px;
-                padding: 0.3rem 0.4rem;
-            }
         }
         .comments-section {
-            margin-top: 0.75rem;
+            margin-top: 1rem;
             background: var(--bg2);
             border-radius: var(--radius-sm);
-            padding: 0.75rem;
-            border: 1px solid var(--border);
+            padding: 1rem;
         }
         .comment-input {
             display: flex;
             gap: 0.5rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
         .comment-input textarea {
             flex: 1;
-            min-height: 50px;
+            min-height: 60px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: .5rem;
             color: var(--text);
             resize: vertical;
-            font-size: .82rem;
         }
         .comment-item {
             padding: .5rem 0;
@@ -3905,66 +3823,18 @@
         .comment-item:last-child {
             border-bottom: none;
         }
-        .comment-item .comment-header {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            font-weight: 600;
-            font-size: .82rem;
-        }
-        .comment-item .comment-header .comment-date {
-            font-weight: 400;
-            color: var(--text3);
-            font-size: .7rem;
-        }
-        .comment-item .comment-body {
-            margin: .2rem 0 .3rem;
-            font-size: .82rem;
-            color: var(--text2);
-            word-wrap: break-word;
-        }
         .comment-item .comment-actions {
             display: flex;
-            gap: .75rem;
-            margin-top: .2rem;
-            font-size: .72rem;
+            gap: .5rem;
+            margin-top: .3rem;
+            font-size: .75rem;
             color: var(--text3);
         }
-        .comment-item .comment-actions span {
+        .comment-item .comment-like {
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: .2rem;
         }
-        .comment-item .comment-actions span:hover {
-            color: var(--primary);
-        }
-        .comment-item .comment-actions .comment-like:hover {
+        .comment-item .comment-like:hover {
             color: var(--danger);
-        }
-        .comment-item .comment-actions .comment-like.liked {
-            color: var(--danger);
-        }
-        .reply-input-container {
-            margin-top: .5rem;
-            padding-left: 1.5rem;
-        }
-        .reply-input-container .d-flex {
-            gap: .4rem;
-            flex-wrap: wrap;
-        }
-        .reply-input-container .d-flex input {
-            flex: 1;
-            min-width: 120px;
-        }
-        .replies-container {
-            margin-top: .5rem;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--border);
-        }
-        .reply-item {
-            padding: .4rem 0;
-            border-bottom: none;
         }
         .challenge-card {
             margin-bottom: 1rem;
@@ -4005,7 +3875,6 @@
             color: #000;
             flex-shrink: 0;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
         .person-avatar img {
             width: 100%;
@@ -4296,7 +4165,6 @@
             color: #000;
             flex-shrink: 0;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
         .following-item .fi-avatar img {
             width: 100%;
@@ -5253,121 +5121,249 @@
             background: var(--text3);
             box-shadow: none;
         }
-
-        /* ===== Platform Highlights ===== */
-        .platform-highlights {
-            background: linear-gradient(135deg, rgba(212, 175, 55, .06), rgba(20, 184, 166, .03));
-            border: 1px solid rgba(212, 175, 55, .14);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
+        /* ===== Facebook-style post content truncation ===== */
+        .post-content-truncated {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            line-clamp: 4;
+            max-height: 6.8em;
+            transition: max-height .3s ease;
+        }
+        .post-content-truncated.expanded {
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+            max-height: none;
+        }
+        .post-show-more-btn {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: .82rem;
+            margin-top: .2rem;
+            background: none;
+            border: none;
+            padding: 0;
+            min-height: auto;
+        }
+        .post-show-more-btn:hover {
+            text-decoration: underline;
+        }
+        /* ===== Facebook-style action buttons ===== */
+        .post-actions-fb {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: .4rem 0 .2rem;
+            border-top: 1px solid var(--border);
+            margin-top: .5rem;
+            flex-wrap: wrap;
+        }
+        .post-actions-fb .btn-action {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .35rem .65rem;
+            border-radius: 50px;
+            background: transparent;
+            border: none;
+            color: var(--text3);
+            font-size: .8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: var(--font-body);
+            min-height: 32px;
+        }
+        .post-actions-fb .btn-action:hover {
+            background: rgba(128, 128, 128, .06);
+            color: var(--text2);
+        }
+        .post-actions-fb .btn-action.liked {
+            color: var(--danger);
+        }
+        .post-actions-fb .btn-action.liked i {
+            color: var(--danger);
+        }
+        .post-actions-fb .btn-action i {
+            font-size: 1.1rem;
+        }
+        .post-actions-fb .btn-action .action-label {
+            font-size: .75rem;
+        }
+        .post-actions-fb .btn-action .action-count {
+            font-size: .7rem;
+            color: var(--text3);
+            margin-left: .15rem;
+        }
+        .post-actions-fb .btn-action .action-count.liked {
+            color: var(--danger);
+        }
+        @media(max-width:480px) {
+            .post-actions-fb .btn-action {
+                padding: .25rem .4rem;
+                font-size: .7rem;
+                gap: .2rem;
+            }
+            .post-actions-fb .btn-action .action-label {
+                font-size: .65rem;
+            }
+            .post-actions-fb .btn-action i {
+                font-size: .95rem;
+            }
+        }
+        /* ===== About / Founders section ===== */
+        .about-founders {
+            background: linear-gradient(135deg, rgba(212, 175, 55, .05), rgba(20, 184, 166, .02));
+            border: 1px solid rgba(212, 175, 55, .15);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            margin: 2rem 0;
             text-align: center;
         }
-        .platform-highlights .ph-title {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: .5rem;
-        }
-        .platform-highlights .ph-sub {
-            font-size: .9rem;
-            color: var(--text2);
-            line-height: 1.7;
-        }
-        .platform-highlights .ph-founders {
+        .about-founders .founders-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
-        .platform-highlights .ph-founder {
+        .about-founders .founder-card {
+            max-width: 200px;
+            text-align: center;
+        }
+        .about-founders .founder-card .founder-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto .65rem;
+            border: 2px solid var(--primary);
+            background: var(--bg2);
             display: flex;
             align-items: center;
-            gap: .75rem;
-            background: var(--bg2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: .6rem 1rem;
-            transition: all .2s;
-        }
-        .platform-highlights .ph-founder:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-        .platform-highlights .ph-founder img {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--primary);
-        }
-        .platform-highlights .ph-founder .ph-fname {
+            justify-content: center;
+            font-size: 2rem;
             font-weight: 700;
-            font-size: .82rem;
-        }
-        .platform-highlights .ph-founder .ph-frole {
-            font-size: .68rem;
-            color: var(--text3);
-        }
-        .platform-highlights .ph-founder .ph-fbadge {
-            font-size: .55rem;
-            background: rgba(212, 175, 55, .12);
-            color: var(--gold);
-            padding: .1rem .5rem;
-            border-radius: 50px;
-            border: 1px solid rgba(212, 175, 55, .2);
-            display: inline-block;
-            margin-top: .1rem;
-        }
-        @media(max-width:480px) {
-            .platform-highlights .ph-founders {
-                flex-direction: column;
-                align-items: center;
-            }
-            .platform-highlights .ph-founder {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-        .powered-by {
-            font-size: .78rem;
-            color: var(--text3);
-            margin-top: .5rem;
-            letter-spacing: .05em;
-        }
-        .powered-by strong {
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        /* ===== Facebook-style comment toggle ===== */
-        .comment-toggle-btn {
-            background: none;
-            border: none;
-            color: var(--text3);
-            font-size: .78rem;
-            cursor: pointer;
-            padding: .2rem .4rem;
-            transition: color .2s;
-            display: inline-flex;
-            align-items: center;
-            gap: .3rem;
-        }
-        .comment-toggle-btn:hover {
             color: var(--primary);
         }
-        .comment-count-badge {
-            background: var(--bg3);
-            color: var(--text2);
-            border-radius: 50px;
-            padding: .05rem .5rem;
-            font-size: .7rem;
-            font-weight: 600;
+        .about-founders .founder-card .founder-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        .comment-toggle-btn .comment-count-badge {
-            background: rgba(128, 128, 128, .12);
+        .about-founders .founder-card .founder-name {
+            font-weight: 700;
+            font-size: .9rem;
+        }
+        .about-founders .founder-card .founder-title {
+            font-size: .72rem;
+            color: var(--text3);
+        }
+        .about-founders .powered-by {
+            font-size: .8rem;
+            color: var(--text3);
+            margin-top: 1rem;
+            letter-spacing: .05em;
+        }
+        .about-founders .powered-by strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        /* ===== Facebook-style comment replies ===== */
+        .comment-item .comment-reply-btn {
+            font-size: .7rem;
+            color: var(--text3);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: .15rem .3rem;
+            min-height: auto;
+        }
+        .comment-item .comment-reply-btn:hover {
+            color: var(--primary);
+        }
+        .comment-item .reply-input-container {
+            margin-top: .4rem;
+            display: none;
+        }
+        .comment-item .reply-input-container.show {
+            display: flex;
+            gap: .4rem;
+        }
+        .comment-item .reply-input-container input {
+            flex: 1;
+            padding: .3rem .6rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: .78rem;
+        }
+        .comment-item .reply-input-container button {
+            padding: .3rem .6rem;
+            font-size: .7rem;
+            min-height: 32px;
+        }
+        .comment-item .comment-replies {
+            margin-top: .4rem;
+            padding-left: 1.2rem;
+            border-left: 2px solid var(--border);
+        }
+        .comment-item .comment-replies .reply-item {
+            padding: .3rem 0;
+            border-bottom: none;
+        }
+        .comment-item .comment-replies .reply-item .reply-author {
+            font-weight: 600;
+            font-size: .78rem;
+        }
+        .comment-item .comment-replies .reply-item .reply-body {
+            font-size: .78rem;
+            color: var(--text2);
+        }
+        .comment-item .comment-replies .reply-item .reply-date {
+            font-size: .6rem;
+            color: var(--text3);
+        }
+        /* ===== Book upload cover image preview ===== */
+        #submitBookCoverPreview {
+            margin-top: .5rem;
+            display: none;
+        }
+        #submitBookCoverPreview img {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+        .book-cover-upload-zone {
+            padding: 1.5rem;
+            background: var(--bg2);
+            border: 2px dashed var(--border2);
+            border-radius: var(--radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all .25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .book-cover-upload-zone:hover {
+            border-color: rgba(212, 175, 55, .4);
+            background: rgba(212, 175, 55, .02);
+        }
+        .book-cover-upload-zone input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .book-cover-upload-zone .cover-upload-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: .4rem;
         }
     </style>
 </head>
@@ -5389,35 +5385,6 @@
 
         <div class="ticker-outer"><div class="ticker-track" id="tickerTrack"></div></div>
 
-        <!-- ===== PLATFORM HIGHLIGHTS ===== -->
-        <div class="lsec" style="padding:1.5rem 1rem;">
-            <div class="lsec-wrap">
-                <div class="platform-highlights">
-                    <div class="ph-title">🌟 Powered by <span style="color:var(--gold)">Xa Industries</span></div>
-                    <div class="ph-sub">Founded &amp; Funded by <strong style="color:var(--primary)">Israel Wycliffe Dewa</strong> · Supported by <strong style="color:var(--cyan)">Ijigai Medugu</strong></div>
-                    <div class="ph-founders">
-                        <div class="ph-founder">
-                            <img src="/image.png" alt="CEO" onerror="this.src='/logo.png'">
-                            <div>
-                                <div class="ph-fname">Israel Wycliffe Dewa</div>
-                                <div class="ph-frole">Founder &amp; CEO</div>
-                                <div class="ph-fbadge">🚀 Visionary</div>
-                            </div>
-                        </div>
-                        <div class="ph-founder">
-                            <img src="/image1.png" alt="Support" onerror="this.src='/logo.png'">
-                            <div>
-                                <div class="ph-fname">Ijigai Medugu</div>
-                                <div class="ph-frole">Support &amp; Operations</div>
-                                <div class="ph-fbadge">⚡ Backbone</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="powered-by">Building Africa's #1 Learn-to-Earn Ecosystem</div>
-                </div>
-            </div>
-        </div>
-
         <section id="how-it-works" class="lsec lsec-dark"><div class="lsec-wrap"><div class="text-center mb-5 reveal"><div class="stag" style="margin-bottom:.65rem"><i class="fas fa-map"></i> Process</div><h2 style="font-size:clamp(1.7rem,4vw,2.6rem)">From Zero to <span class="grad-text">Earning</span> in 4 Steps</h2></div><div class="row"><div class="col-12 col-md-6 col-lg-3 reveal" style="transition-delay:.05s"><div class="hiw-card"><div class="hiw-num">01</div><div><strong>Sign Up Free</strong><br><small style="color:var(--text3)">Create account, complete profile &amp; choose your role.</small></div></div></div><div class="col-12 col-md-6 col-lg-3 reveal" style="transition-delay:.1s"><div class="hiw-card"><div class="hiw-num">02</div><div><strong>Learn Skills</strong><br><small style="color:var(--text3)">20+ lessons per course with video, quiz, Q&amp;A &amp; resources.</small></div></div></div><div class="col-12 col-md-6 col-lg-3 reveal" style="transition-delay:.15s"><div class="hiw-card"><div class="hiw-num">03</div><div><strong>Create &amp; Promote</strong><br><small style="color:var(--text3)">Teach courses, earn affiliate commissions &amp; referral bonuses.</small></div></div></div><div class="col-12 col-md-6 col-lg-3 reveal" style="transition-delay:.2s"><div class="hiw-card"><div class="hiw-num">04</div><div><strong>Start Earning</strong><br><small style="color:var(--text3)">Get paid to your wallet, withdraw to your Nigerian bank.</small></div></div></div></div></div></section>
 
         <section id="courses-sec" class="lsec"><div class="lsec-wrap"><div class="d-flex items-center justify-between mb-4 reveal flex-wrap" style="gap:.75rem"><div><div class="stag mb-2"><i class="fas fa-graduation-cap"></i> Featured</div><h2 style="font-size:1.85rem">Learn what <span class="grad-text">pays</span></h2></div><button class="btn btn-outline btn-sm" onclick="goPage('register')">View All <i class="fas fa-arrow-right"></i></button></div><div class="row" id="landingCourseGrid"></div></div></section>
@@ -5433,6 +5400,9 @@
         <section id="reviews-sec" class="lsec"><div class="lsec-wrap"><div class="text-center mb-5 reveal"><div class="stag mb-3"><i class="fas fa-star"></i> Reviews</div><h2 style="font-size:clamp(1.7rem,4vw,2.6rem)">What Our <span class="grad-text">Students Say</span></h2></div><div class="row" id="reviewsList"></div><div class="row justify-center mt-5"><div class="col-12 col-md-6"><div class="card card-p"><h5>Leave a Review</h5><div class="form-group"><label class="flabel">Your Name</label><input type="text" class="finput" id="reviewName" placeholder="Your full name"></div><div class="form-group"><label class="flabel">Rating</label><div style="display:flex;gap:.3rem;font-size:1.5rem;cursor:pointer" id="reviewStars"><span data-val="1" onclick="setReviewStar(1)">☆</span><span data-val="2" onclick="setReviewStar(2)">☆</span><span data-val="3" onclick="setReviewStar(3)">☆</span><span data-val="4" onclick="setReviewStar(4)">☆</span><span data-val="5" onclick="setReviewStar(5)">☆</span></div></div><div class="form-group"><label class="flabel">Review</label><textarea class="finput" id="reviewText" rows="3" placeholder="Your experience..."></textarea></div><button class="btn btn-primary" onclick="submitReview()">Submit Review</button></div></div></div></div></section>
 
         <section id="pricing-sec" class="lsec"><div class="lsec-wrap"><div class="text-center mb-5 reveal"><div class="stag mb-3"><i class="fas fa-tag"></i> Pricing</div><h2 style="font-size:clamp(1.7rem,4vw,2.6rem)">Simple, <span class="grad-text">Transparent</span> Pricing</h2></div><div class="row justify-center"><div class="col-12 col-md-4 reveal" style="transition-delay:.05s"><div class="price-card"><div class="stag mb-3"><i class="fas fa-user"></i> Free</div><div class="p-amt">₦0<span style="font-size:1rem;color:var(--text3)">/mo</span></div><p style="font-size:.79rem;color:var(--text3);margin:.5rem 0 1rem">Perfect to get started</p><ul style="list-style:none;display:flex;flex-direction:column;gap:.45rem;font-size:.83rem;margin-bottom:1.25rem"><li><i class="fas fa-check chk"></i>5 courses access</li><li><i class="fas fa-check chk"></i>Basic certificates</li><li><i class="fas fa-check chk"></i>Referral program</li><li><i class="fas fa-times nope"></i>Create courses</li><li><i class="fas fa-times nope"></i>Unlimited uploads</li><li><i class="fas fa-times nope"></i>No ads</li></ul><button class="btn btn-outline w-full" onclick="goPage('register')">Get Started Free</button></div></div><div class="col-12 col-md-4 reveal" style="transition-delay:.1s"><div class="price-card featured"><div class="stag mb-3"><i class="fas fa-crown"></i> Premium</div><div class="p-amt" style="color:var(--lime)">₦5,000<span style="font-size:1rem;color:var(--text3)">/mo</span></div><p style="font-size:.79rem;color:var(--text3);margin:.5rem 0 1rem">For serious learners &amp; earners</p><ul style="list-style:none;display:flex;flex-direction:column;gap:.45rem;font-size:.83rem;margin-bottom:1.25rem"><li><i class="fas fa-check chk"></i>All courses unlimited</li><li><i class="fas fa-check chk"></i>Create &amp; sell courses</li><li><i class="fas fa-check chk"></i>Affiliate dashboard</li><li><i class="fas fa-check chk"></i>Unlimited uploads</li><li><i class="fas fa-check chk"></i>No ads 🎉</li><li><i class="fas fa-check chk"></i>80% course revenue</li></ul><button class="btn btn-primary w-full" onclick="goPage('register')"><i class="fas fa-crown"></i>Go Premium</button></div></div><div class="col-12 col-md-4 reveal" style="transition-delay:.15s"><div class="price-card"><div class="stag mb-3"><i class="fas fa-building"></i> Business</div><div class="p-amt">₦25,000<span style="font-size:1rem;color:var(--text3)">/mo</span></div><p style="font-size:.79rem;color:var(--text3);margin:.5rem 0 1rem">For teams &amp; organizations</p><ul style="list-style:none;display:flex;flex-direction:column;gap:.45rem;font-size:.83rem;margin-bottom:1.25rem"><li><i class="fas fa-check chk"></i>Everything in Premium</li><li><i class="fas fa-check chk"></i>Up to 20 seats</li><li><i class="fas fa-check chk"></i>Custom branding</li><li><i class="fas fa-check chk"></i>Analytics</li><li><i class="fas fa-check chk"></i>Dedicated manager</li></ul><button class="btn btn-outline w-full" onclick="goPage('contact')">Contact Sales</button></div></div></div></div></section>
+
+        <!-- ===== ABOUT / FOUNDERS SECTION ===== -->
+        <section class="lsec lsec-dark"><div class="lsec-wrap"><div class="about-founders"><div class="stag mb-3" style="justify-content:center"><i class="fas fa-crown"></i> About ChangeX</div><h2 style="font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:.5rem">Built for the <span class="grad-text">Future of Learning</span></h2><p style="color:var(--text2);max-width:600px;margin:0 auto 1.5rem;font-size:.95rem">ChangeX Academy is the world's first Learn-to-Earn platform where students turn tech skills into real income. Powered by innovation and a vision for global education.</p><div class="founders-grid"><div class="founder-card"><div class="founder-img"><img src="/image.png" alt="Israel Wycliffe Dewa" onerror="this.style.display='none';this.parentElement.textContent='👨‍💻'"></div><div class="founder-name">Israel Wycliffe Dewa</div><div class="founder-title">Co-Founder &amp; CEO</div></div><div class="founder-card"><div class="founder-img"><img src="/image1.png" alt="Ijigai Medugu" onerror="this.style.display='none';this.parentElement.textContent='👨‍💻'"></div><div class="founder-name">Ijigai Medugu</div><div class="founder-title">Co-Founder &amp; CTO</div></div></div><div class="powered-by">🚀 Powered by <strong>ChangeX Industries</strong> — Founded &amp; Funded by Israel Wycliffe Dewa &amp; Ijigai Medugu</div></div></div></section>
 
         <footer class="lfooter"><div class="lsec-wrap"><div class="row mb-4"><div class="col-12 col-md-4"><div class="logo mb-3"><div class="logo-mark"><img src="/logo.png" alt="ChangeX" style="width:100%;height:100%;border-radius:8px;object-fit:cover;" /></div>ChangeX<span style="color:var(--primary)">.</span></div><p style="font-size:.82rem;color:var(--text3);max-width:260px;line-height:1.65">Global #1 Learn-to-Earn platform. Turning tech skills into real income.</p><div class="f-social"><div class="soc-btn"><i class="fab fa-twitter"></i></div><div class="soc-btn"><i class="fab fa-instagram"></i></div><div class="soc-btn"><i class="fab fa-linkedin"></i></div><div class="soc-btn"><i class="fab fa-youtube"></i></div><div class="soc-btn"><i class="fab fa-whatsapp"></i></div></div></div><div class="col-6 col-md-2"><h6 style="margin-bottom:.65rem">Learn</h6><ul class="f-links"><li><a onclick="goPage('register')">All Courses</a></li><li><a>Web Dev</a></li><li><a>AI &amp; Tools</a></li><li><a>Freelancing</a></li></ul></div><div class="col-6 col-md-2"><h6 style="margin-bottom:.65rem">Earn</h6><ul class="f-links"><li><a>Referrals</a></li><li><a>Affiliates</a></li><li><a>Teach Here</a></li><li><a>Leaderboard</a></li></ul></div><div class="col-6 col-md-2"><h6 style="margin-bottom:.65rem">Company</h6><ul class="f-links"><li><a>About</a></li><li><a onclick="goPage('contact')">Contact</a></li><li><a>Privacy</a></li><li><a>Terms</a></li></ul></div><div class="col-6 col-md-2"><h6 style="margin-bottom:.65rem">Newsletter</h6><p style="font-size:.75rem;color:var(--text3);margin-bottom:.6rem">Weekly tips &amp; earnings updates</p><input type="email" class="finput" id="footerEmail" placeholder="your@email.com" style="margin-bottom:.4rem"/><button class="btn btn-primary btn-sm w-full" onclick="subscribeEmail()">Subscribe</button></div></div><div style="border-top:1px solid var(--border);padding-top:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem"><p style="font-size:.73rem;color:var(--text3)">© 2025 ChangeX Academy. Made with ❤️ for the world.</p><p style="font-size:.73rem;color:var(--text3)">Contact: <a href="mailto:changexacademysupport@gmail.com" style="color:var(--primary)">changexacademysupport@gmail.com</a></p></div></div></footer>
     </div>
@@ -5492,17 +5462,10 @@
     <!-- ============================================================ -->
     <!-- SUBMIT BOOK MODAL (Premium users upload books for admin approval) -->
     <!-- ============================================================ -->
-    <div class="modal-ov hidden" id="submitBookModal"><div class="modal-box modal-box-lg"><div class="sheet-handle d-md-none"></div><div class="modal-hd"><h5 style="margin:0">📚 Submit Book for Review</h5><button class="btn-icon-sm" onclick="closeModal('submitBookModal')"><i class="fas fa-times"></i></button></div><div class="modal-bd"><p style="color:var(--text3);font-size:.82rem;margin-bottom:1rem">Premium users can submit books for admin approval. Once approved, they'll appear in the library.</p>
-                <div class="form-group"><label class="flabel">Title *</label><input type="text" class="finput" id="submitBookTitle" placeholder="e.g. The Pragmatic Programmer"></div>
-                <div class="form-group"><label class="flabel">Author *</label><input type="text" class="finput" id="submitBookAuthor" placeholder="e.g. Andrew Hunt"></div>
-                <div class="form-group"><label class="flabel">Description</label><textarea class="finput" id="submitBookDesc" rows="3" placeholder="Book description..."></textarea></div>
-                <div class="row">
-                    <div class="col-12 col-md-4"><div class="form-group"><label class="flabel">Price (₦)</label><input type="number" class="finput" id="submitBookPrice" placeholder="0 for free" value="0" min="0"></div></div>
-                    <div class="col-12 col-md-8"><div class="form-group"><label class="flabel">Cover Image</label><div class="upload-zone" style="padding:.8rem"><input type="file" id="submitBookCoverFile" accept="image/*" onchange="previewSubmitBookCover(this)"><div class="upload-icon"><i class="fas fa-image"></i></div><div style="font-size:.8rem;color:var(--text2)">Upload cover image (PNG, JPG, WebP)</div></div><div id="submitBookCoverPreview" style="display:none;margin-top:.5rem;"><img id="submitBookCoverPreviewImg" style="max-width:120px;max-height:120px;border-radius:var(--radius-sm);border:1px solid var(--border);object-fit:cover;"><div class="upload-preview-label">✅ Cover uploaded</div></div></div>
-                </div>
-                <div class="form-group"><label class="flabel">Book File (PDF) *</label><div class="upload-zone" style="padding:1rem"><input type="file" id="submitBookFile" accept="application/pdf" onchange="previewSubmitBookFile(this)"><div class="upload-icon"><i class="fas fa-file-pdf"></i></div><div style="font-size:.8rem;color:var(--text2)">Upload PDF file</div></div><div id="submitBookFilePreview" style="display:none;margin-top:.5rem;font-size:.8rem;color:var(--success)">✅ File selected: <span id="submitBookFileName"></span></div></div>
-                <div id="submitBookProgress" class="book-upload-progress" style="display:none;">Uploading... 0%</div>
-            </div><div class="modal-ft"><button class="btn btn-ghost" onclick="closeModal('submitBookModal')">Cancel</button><button class="btn btn-primary" onclick="submitBookForReview()"><i class="fas fa-paper-plane"></i> Submit for Review</button></div></div></div>
+    <div class="modal-ov hidden" id="submitBookModal"><div class="modal-box modal-box-lg"><div class="sheet-handle d-md-none"></div><div class="modal-hd"><h5 style="margin:0">📚 Submit Book for Review</h5><button class="btn-icon-sm" onclick="closeModal('submitBookModal')"><i class="fas fa-times"></i></button></div><div class="modal-bd"><p style="color:var(--text3);font-size:.82rem;margin-bottom:1rem">Premium users can submit books for admin approval. Once approved, they'll appear in the library.</p><div class="form-group"><label class="flabel">Title *</label><input type="text" class="finput" id="submitBookTitle" placeholder="e.g. The Pragmatic Programmer"></div><div class="form-group"><label class="flabel">Author *</label><input type="text" class="finput" id="submitBookAuthor" placeholder="e.g. Andrew Hunt"></div><div class="form-group"><label class="flabel">Description</label><textarea class="finput" id="submitBookDesc" rows="3" placeholder="Book description..."></textarea></div><div class="row"><div class="col-12 col-md-4"><div class="form-group"><label class="flabel">Price (₦)</label><input type="number" class="finput" id="submitBookPrice" placeholder="0 for free" value="0" min="0"></div></div></div>
+        <div class="form-group"><label class="flabel">Book Cover Image *</label><div class="book-cover-upload-zone"><input type="file" id="submitBookCoverFile" accept="image/*" onchange="previewSubmitBookCover(this)"><div class="cover-upload-icon"><i class="fas fa-image"></i></div><div style="font-size:.8rem;color:var(--text2)">Click to upload cover image (PNG, JPG, WebP)</div></div><div id="submitBookCoverPreview" style="margin-top:.5rem;display:none"><img id="submitBookCoverPreviewImg" style="max-width:150px;max-height:150px;border-radius:var(--radius-sm);border:1px solid var(--border);"><div style="font-size:.72rem;color:var(--success);margin-top:.2rem">✅ Cover image selected</div></div></div>
+        <div class="form-group"><label class="flabel">Book File (PDF) *</label><div class="upload-zone" style="padding:1rem"><input type="file" id="submitBookFile" accept="application/pdf" onchange="previewSubmitBookFile(this)"><div class="upload-icon"><i class="fas fa-file-pdf"></i></div><div style="font-size:.8rem;color:var(--text2)">Upload PDF file</div></div><div id="submitBookFilePreview" style="display:none;margin-top:.5rem;font-size:.8rem;color:var(--success)">✅ File selected: <span id="submitBookFileName"></span></div></div>
+        <div id="submitBookProgress" class="book-upload-progress" style="display:none;">Uploading... 0%</div></div><div class="modal-ft"><button class="btn btn-ghost" onclick="closeModal('submitBookModal')">Cancel</button><button class="btn btn-primary" onclick="submitBookForReview()"><i class="fas fa-paper-plane"></i> Submit for Review</button></div></div></div>
 
     <!-- ============================================================ -->
     <!-- NOTIFICATION PANEL -->
@@ -5635,10 +5598,7 @@
                             <div class="form-group"><label class="flabel">Author *</label><input type="text" class="finput" id="bookUploadAuthor" placeholder="Author name" /></div>
                             <div class="form-group"><label class="flabel">Description</label><textarea class="finput" id="bookUploadDesc" rows="3" placeholder="Book description..."></textarea></div>
                             <div class="form-group"><label class="flabel">Price (₦)</label><input type="number" class="finput" id="bookUploadPrice" placeholder="0 for free" min="0" value="0" /></div>
-                            <div class="form-group"><label class="flabel">Cover Image</label>
-                                <div class="upload-zone" style="padding:.8rem"><input type="file" id="bookUploadCoverFile" accept="image/*" onchange="previewBookCoverUpload(this)"><div class="upload-icon"><i class="fas fa-image"></i></div><div style="font-size:.8rem;color:var(--text2)">Upload cover image (PNG, JPG, WebP)</div></div>
-                                <div id="bookUploadCoverPreview" style="display:none;margin-top:.5rem;"><img id="bookUploadCoverPreviewImg" style="max-width:120px;max-height:120px;border-radius:var(--radius-sm);border:1px solid var(--border);object-fit:cover;"><div class="upload-preview-label">✅ Cover uploaded</div></div>
-                            </div>
+                            <div class="form-group"><label class="flabel">Book Cover Image</label><div class="book-cover-upload-zone"><input type="file" id="bookUploadCoverFile" accept="image/*" onchange="previewBookUploadCover(this)"><div class="cover-upload-icon"><i class="fas fa-image"></i></div><div style="font-size:.8rem;color:var(--text2)">Upload cover image (PNG, JPG, WebP)</div></div><div id="bookUploadCoverPreview" style="display:none;margin-top:.5rem"><img id="bookUploadCoverPreviewImg" style="max-width:150px;max-height:150px;border-radius:var(--radius-sm);border:1px solid var(--border);"><div style="font-size:.72rem;color:var(--success);margin-top:.2rem">✅ Cover uploaded</div></div></div>
                             <div class="form-group"><label class="flabel">Book PDF URL *</label><input type="url" class="finput" id="bookUploadFile" placeholder="https://example.com/book.pdf" oninput="previewBookFile(this.value)" /></div>
                             <div id="bookUploadFilePreview" style="display:none;"><span class="badge badge-success">✅ PDF URL provided</span></div>
                             <div class="form-group"><label class="flabel">Affiliate Commission (%)</label><input type="number" class="finput" id="bookUploadAffiliate" placeholder="e.g. 15" min="0" max="50" value="0" /></div>
@@ -5839,7 +5799,10 @@
             convertedFileData: null,
             convertedFileType: '',
             // ─── Online/Offline status ────────────────────────────────
-            onlineUsers: {}
+            onlineUsers: {},
+            // ─── Facebook-style post truncation ───────────────────────
+            postTruncationLimit: 300,
+            expandedPosts: {}
         };
 
         // ═══════════════════════════════════════════════════════════════
@@ -6788,7 +6751,7 @@
         }
 
         // ================================================================
-        // POSTS MODULE
+        // POSTS MODULE – Facebook-style with Show More
         // ================================================================
         const POSTS_API = '/posts';
         const CHALLENGES_API = '/challenges';
@@ -7030,7 +6993,374 @@
             adCards.forEach(card => observer.observe(card));
         }
 
-        // ─── FEED RENDER WITH HYBRID ADS ──────────────────────────────
+        // ─── FEED RENDER WITH HYBRID ADS & SHOW MORE ──────────────────
+        function truncateContent(content, limit) {
+            if (!content) return '';
+            const plainText = content.replace(/<[^>]*>/g, ' ');
+            if (plainText.length <= limit) return content;
+            // Find the last space before the limit to avoid cutting words
+            let cutAt = limit;
+            const lastSpace = plainText.lastIndexOf(' ', limit);
+            if (lastSpace > 0) cutAt = lastSpace;
+            // We need to truncate HTML content properly. Since we have HTML, we'll use a simpler approach:
+            // Create a temporary div, get text, truncate, then wrap in <span> with ellipsis
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+            const text = tempDiv.textContent || '';
+            if (text.length <= limit) return content;
+            const truncatedText = text.substring(0, cutAt) + '...';
+            // Return the truncated version with a "Show more" trigger
+            return `<span class="post-content-short">${escapeHtml(truncatedText)}</span><span class="post-content-full" style="display:none;">${content}</span>`;
+        }
+
+        function renderPostCard(post, scoreBadge = '') {
+            let author = post.authorId || post.author || {};
+            if (typeof author === 'string') {
+                if (author === S.user?._id) { author = S.user || { firstName: 'You', lastName: '', _id: author }; } else {
+                    author = { firstName: 'User', lastName: '', _id: author }; }
+            }
+            const avatarHtml = getAvatarUrl(author) ?
+                `<img src="${getAvatarUrl(author)}" alt="${author.firstName || 'U'}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` :
+                (author.firstName?.[0] || 'U');
+            const contentHtml = post.content ? (typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(post.content) : post
+                .content) : '';
+            const isAuthor = S.user?._id === author._id || S.user?._id === post.authorId?._id || S.user?._id === post
+                .authorId;
+            const isAdmin = S.user?.roles?.includes('admin');
+            const slug = post.slug || post._id;
+            const views = post.views || 0;
+            const postUrl = `${FRONTEND_URL}/post/${slug}`;
+
+            // Truncate content for "Show more" - we'll use a shorter version in the post
+            const plainText = contentHtml.replace(/<[^>]*>/g, ' ');
+            const isLong = plainText.length > S.postTruncationLimit;
+            const shortContent = isLong ? contentHtml.substring(0, S.postTruncationLimit) + '...' : contentHtml;
+            const showMoreId = 'sm-' + post._id;
+
+            return `
+                <div class="post-card card card-p" data-post-id="${post._id}">
+                    <div class="post-header">
+                        <div class="post-author-avatar" style="background:linear-gradient(135deg,var(--primary),var(--secondary));" onclick="openUserProfile('${author._id || post.authorId}')">
+                            ${avatarHtml}
+                        </div>
+                        <div class="post-author-info">
+                            <strong onclick="openUserProfile('${author._id || post.authorId}')" style="cursor:pointer">${escapeHtml(author.firstName || 'User')} ${escapeHtml(author.lastName || '')}</strong>
+                            <span class="post-date">${new Date(post.publishedAt || post.createdAt).toLocaleDateString()}</span>
+                            <span class="badge badge-cyan" style="font-size:.55rem">${post.type || 'article'}</span>
+                            ${isAuthor ? `<span class="badge badge-dark" style="font-size:.55rem">You</span>` : ''}
+                            ${post.isPremiumOnly ? `<span class="badge badge-gold" style="font-size:.55rem">Premium</span>` : ''}
+                            ${scoreBadge}
+                        </div>
+                        <div style="margin-left:auto;display:flex;gap:.2rem">
+                            ${isAuthor || isAdmin ? `<button class="post-delete-btn" onclick="deletePost('${post._id}')" title="Delete post"><i class="fas fa-trash"></i></button>` : ''}
+                            ${isAuthor ? `<button class="post-edit-btn" onclick="editPost('${post._id}')" title="Edit post"><i class="fas fa-edit"></i></button>` : ''}
+                        </div>
+                    </div>
+                    <h3 class="post-title" onclick="window.location.href='${postUrl}'">${escapeHtml(post.title)}</h3>
+                    ${post.featuredImage ? `<img src="${post.featuredImage}" class="post-image" alt="featured" loading="lazy">` : ''}
+                    ${post.videoUrl ? `<video controls style="max-width:100%;border-radius:var(--radius-sm);margin:.75rem 0;"><source src="${post.videoUrl}" type="video/mp4"></video>` : ''}
+                    <div class="post-content" id="pc-${post._id}">
+                        <div class="post-content-text ${isLong ? 'truncated' : ''}" id="pct-${post._id}">
+                            ${isLong ? `<span class="short-text">${shortContent}</span><span class="full-text" style="display:none;">${contentHtml}</span>` : contentHtml}
+                        </div>
+                        ${isLong ? `<button class="post-show-more-btn" onclick="togglePostContent('${post._id}')">Show more</button>` : ''}
+                    </div>
+                    <div class="post-stats">
+                        <span><i class="fas fa-eye"></i> ${views}</span>
+                        <span class="post-likes" data-id="${post._id}"><i class="far fa-heart"></i> ${post.likes || 0}</span>
+                        <span class="post-comments"><i class="far fa-comment"></i> ${post.commentsCount || 0}</span>
+                        <span class="post-shares"><i class="fas fa-share-alt"></i> ${post.shares || 0}</span>
+                        ${post.earnings > 0 ? `<span class="badge badge-gold" style="font-size:.6rem">🏆 +${fmtMoneyAPI(post.earnings)}</span>` : ''}
+                    </div>
+                    <div class="post-actions-fb">
+                        <button class="btn-action btn-like ${post.userLiked ? 'liked' : ''}" data-id="${post._id}">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span class="action-label">Like</span>
+                            <span class="action-count ${post.userLiked ? 'liked' : ''}" id="like-count-${post._id}">${post.likes || 0}</span>
+                        </button>
+                        <button class="btn-action btn-comment" data-id="${post._id}">
+                            <i class="fas fa-comment"></i>
+                            <span class="action-label">Comment</span>
+                            <span class="action-count">${post.commentsCount || 0}</span>
+                        </button>
+                        <button class="btn-action btn-share" onclick="openShareModal('${post._id}','${slug}')">
+                            <i class="fas fa-share-alt"></i>
+                            <span class="action-label">Share</span>
+                            <span class="action-count">${post.shares || 0}</span>
+                        </button>
+                    </div>
+                    <div class="comments-section" style="display:none;" data-post-id="${post._id}"></div>
+                </div>
+            `;
+        }
+
+        // ─── Toggle post content show more ──────────────────────────────
+        function togglePostContent(postId) {
+            const container = document.getElementById('pct-' + postId);
+            if (!container) return;
+            const shortText = container.querySelector('.short-text');
+            const fullText = container.querySelector('.full-text');
+            const btn = container.closest('.post-content').querySelector('.post-show-more-btn');
+            if (shortText && fullText && btn) {
+                if (shortText.style.display !== 'none') {
+                    shortText.style.display = 'none';
+                    fullText.style.display = 'inline';
+                    btn.textContent = 'Show less';
+                } else {
+                    shortText.style.display = 'inline';
+                    fullText.style.display = 'none';
+                    btn.textContent = 'Show more';
+                }
+            }
+        }
+
+        function filterFeed(type, el) {
+            if (el) { document.querySelectorAll('.feed-tabs .fpill').forEach(p => p.classList.remove('active'));
+                el.classList.add('active'); }
+            S.feedFilter = type;
+            feedPage = 1;
+            feedHasMore = true;
+            const container = document.getElementById('feedContainer');
+            if (container) container.innerHTML = '';
+            loadFeed(1);
+        }
+
+        function attachPostEventListeners() {
+            document.querySelectorAll('.btn-like').forEach(btn => { btn.onclick = () => likePost(btn.dataset.id); });
+            document.querySelectorAll('.btn-comment').forEach(btn => { btn.onclick = () => toggleComments(btn.dataset.id); });
+        }
+
+        async function likePost(postId) {
+            try {
+                const res = await apiCall(`${POSTS_API}/${postId}/like`, { method: 'POST' });
+                if (res.success) {
+                    const likeCount = document.getElementById(`like-count-${postId}`);
+                    if (likeCount) likeCount.textContent = res.likes || 0;
+                    const btn = document.querySelector(`.btn-like[data-id="${postId}"]`);
+                    if (btn) {
+                        btn.classList.toggle('liked', res.liked);
+                        const countSpan = btn.querySelector('.action-count');
+                        if (countSpan) countSpan.classList.toggle('liked', res.liked);
+                    }
+                    toast(res.liked ? 'Liked!' : 'Unliked', 'success');
+                }
+            } catch (err) { toast('Error liking post', 'error'); }
+        }
+
+        async function toggleComments(postId) {
+            const section = document.querySelector(`.comments-section[data-post-id="${postId}"]`);
+            if (!section) return;
+            if (section.style.display === 'none') { section.style.display = 'block';
+                await loadComments(postId); } else { section.style.display = 'none'; }
+        }
+
+        async function loadComments(postId) {
+            const section = document.querySelector(`.comments-section[data-post-id="${postId}"]`);
+            try {
+                const res = await apiCall(`${POSTS_API}/${postId}/comments`);
+                const comments = res.data || [];
+                section.innerHTML = `
+                    <div class="comment-input"><textarea placeholder="Write a comment..." id="commentText-${postId}"></textarea><button class="btn-primary btn-sm" onclick="addComment('${postId}')">Post</button></div>
+                    <div class="comments-list" id="commentsList-${postId}">
+                        ${comments.map(c => {
+                            const replyCount = c.replies?.length || 0;
+                            const repliesHtml = c.replies?.length ? `
+                                <div class="comment-replies">
+                                    ${c.replies.map(r => `
+                                        <div class="reply-item">
+                                            <div class="reply-author">${escapeHtml(r.userId?.firstName || 'User')} ${escapeHtml(r.userId?.lastName || '')}</div>
+                                            <div class="reply-body">${escapeHtml(r.content)}</div>
+                                            <div class="reply-date">${new Date(r.createdAt).toLocaleDateString()}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : '';
+                            return `
+                                <div class="comment-item" data-comment-id="${c._id}">
+                                    <div class="comment-header"><strong>${escapeHtml(c.userId?.firstName || 'User')} ${escapeHtml(c.userId?.lastName || '')}</strong><span class="comment-date">${new Date(c.createdAt).toLocaleDateString()}</span></div>
+                                    <div class="comment-body">${escapeHtml(c.content)}</div>
+                                    <div class="comment-actions">
+                                        <span class="comment-like" onclick="likeComment('${c._id}')"><i class="fas fa-heart"></i> ${c.likes || 0}</span>
+                                        <button class="comment-reply-btn" onclick="showReplyInput('${c._id}')"><i class="fas fa-reply"></i> Reply</button>
+                                        ${replyCount > 0 ? `<span class="comment-replies-count">💬 ${replyCount} replies</span>` : ''}
+                                    </div>
+                                    <div class="reply-input-container" id="replyInput-${c._id}">
+                                        <input type="text" id="replyText-${c._id}" placeholder="Write a reply..." />
+                                        <button class="btn btn-primary btn-sm" onclick="submitReply('${c._id}')"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                    ${repliesHtml}
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            } catch (err) { section.innerHTML = '<p>Failed to load comments</p>'; }
+        }
+
+        function showReplyInput(commentId) {
+            const container = document.getElementById(`replyInput-${commentId}`);
+            if (container) {
+                container.classList.toggle('show');
+                const input = document.getElementById(`replyText-${commentId}`);
+                if (input) input.focus();
+            }
+        }
+
+        async function submitReply(commentId) {
+            const input = document.getElementById(`replyText-${commentId}`);
+            const content = input?.value.trim();
+            if (!content) { toast('Please enter a reply', 'error'); return; }
+            const postId = document.querySelector('.comments-section')?.dataset.postId;
+            if (!postId) { toast('Error: Post not found', 'error'); return; }
+            try {
+                await apiCall(`/posts/${postId}/comment`, {
+                    method: 'POST',
+                    body: { content, parentId: commentId }
+                });
+                toast('✅ Reply posted!', 'success');
+                input.value = '';
+                if (input.closest('.reply-input-container')) {
+                    input.closest('.reply-input-container').classList.remove('show');
+                }
+                loadComments(postId);
+            } catch (err) {
+                toast('Failed to post reply: ' + err.message, 'error');
+            }
+        }
+
+        async function addComment(postId) {
+            const textarea = document.getElementById(`commentText-${postId}`);
+            const content = textarea?.value.trim();
+            if (!content) return;
+            try { await apiCall(`${POSTS_API}/${postId}/comment`, { method: 'POST', body: { content } });
+                toast('Comment added', 'success');
+                textarea.value = '';
+                loadComments(postId); } catch (err) { toast('Failed to add comment', 'error'); }
+        }
+
+        async function likeComment(commentId) {
+            try { await apiCall(`${POSTS_API}/comment/${commentId}/like`, { method: 'POST' });
+                toast('Liked comment', 'success'); } catch (err) { toast('Error', 'error'); }
+        }
+
+        async function deletePost(postId) {
+            if (!confirm('Delete this post permanently?')) return;
+            try {
+                const isAdmin = S.user?.roles?.includes('admin');
+                const endpoint = isAdmin ? `/admin/posts/${postId}` : `${POSTS_API}/${postId}`;
+                await apiCall(endpoint, { method: 'DELETE' });
+                toast('Post deleted', 'success');
+                try {
+                    const cached = JSON.parse(localStorage.getItem('cx_feed_posts') || '[]');
+                    const updated = cached.filter(p => p._id !== postId);
+                    localStorage.setItem('cx_feed_posts', JSON.stringify(updated));
+                } catch (e) {}
+                if (S.dp === 'feed') loadFeed(feedPage);
+                if (S.dp === 'profile' && S.profileUser) {
+                    const res = await apiCall(`/users/${S.profileUser._id}/profile`);
+                    renderUserProfile(res.data);
+                }
+                if (S.dp === 'admin' && S.admSec === 'users') {
+                    switchAdm('users', document.querySelector('#dash-admin .fpill.active'));
+                }
+            } catch (err) { toast('Failed to delete: ' + err.message, 'error'); }
+        }
+
+        function editPost(postId) { toast('Edit functionality coming soon!', 'info'); }
+
+        function openCreatePostModal() {
+            const modal = document.getElementById('createPostModal');
+            if (modal) {
+                openModal('createPostModal');
+                const warning = document.getElementById('postDuplicateWarning');
+                if (warning) warning.classList.remove('show');
+                document.getElementById('postTitle').value = '';
+                if (S.postQuill) S.postQuill.root.innerHTML = '';
+                loadMyPostTitles();
+            }
+        }
+
+        function initPostQuill() {
+            if (S.postQuill) { try { S.postQuill.focus(); } catch (e) {} return; }
+            const el = document.getElementById('postEditor');
+            if (!el || typeof Quill === 'undefined') { setTimeout(initPostQuill, 300); return; }
+            try {
+                S.postQuill = new Quill('#postEditor', { theme: 'snow', placeholder: 'Write your post content here...',
+                    modules: { toolbar: [
+                            ['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                            ['link', 'image', 'code-block'], ['clean']
+                        ] } });
+                if (!S.postQuill.root.innerHTML || S.postQuill.root.innerHTML === '<p><br></p>') { S.postQuill.root
+                        .innerHTML = ''; }
+            } catch (e) { console.warn('Quill init error:', e);
+                setTimeout(initPostQuill, 500); }
+        }
+
+        async function submitNewPost() {
+            const title = document.getElementById('postTitle')?.value.trim();
+            const type = document.getElementById('postType')?.value || 'article';
+            let content = '';
+            if (S.postQuill) { content = S.postQuill.root.innerHTML; } else {
+                const editorEl = document.getElementById('postEditor');
+                if (editorEl) content = editorEl.innerHTML || '';
+            }
+            const tags = document.getElementById('postTags')?.value || '';
+            const featuredImage = document.getElementById('postImage')?.value || '';
+            const seoTitle = document.getElementById('postSeoTitle')?.value || '';
+            const seoDesc = document.getElementById('postSeoDesc')?.value || '';
+            const videoFile = document.getElementById('postVideoInput')?.files[0];
+
+            if (!title) { toast('Please enter a title', 'error'); return; }
+            const isDuplicate = S.myPostTitles.some(t => t.toLowerCase() === title.toLowerCase());
+            if (isDuplicate) {
+                toast('⚠️ You already have a post with this title. Please use a different title.', 'error');
+                document.getElementById('postDuplicateWarning').classList.add('show');
+                return;
+            }
+            if (!content || content === '<p><br></p>' || content.trim() === '') { toast('Please write some content for your post',
+                    'error'); return; }
+            showLoading('Publishing post...');
+            try {
+                const res = await apiCall(POSTS_API, { method: 'POST', body: { title, content, type, tags,
+                        featuredImage, seoTitle, seoDescription: seoDesc, isPublished: true } });
+                const newPost = res.data || res;
+                const postId = newPost._id;
+                if (postId && videoFile) {
+                    const formData = new FormData();
+                    formData.append('video', videoFile);
+                    const token = localStorage.getItem('cx_accessToken');
+                    await fetch(`${API_BASE}/posts/${postId}/video`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
+                        body: formData });
+                }
+                updateSEO(newPost);
+                toast('✅ Post published!', 'success');
+                closeModal('createPostModal');
+                document.getElementById('postTitle').value = '';
+                document.getElementById('postTags').value = '';
+                document.getElementById('postImage').value = '';
+                document.getElementById('postSeoTitle').value = '';
+                document.getElementById('postSeoDesc').value = '';
+                document.getElementById('postVideoInput').value = '';
+                if (S.postQuill) S.postQuill.root.innerHTML = '';
+                cacheFeedPosts([newPost]);
+                if (S.dp === 'feed' || S.dp === 'home') {
+                    const container = document.getElementById('feedContainer');
+                    if (container) {
+                        if (!container.querySelector(`[data-post-id="${postId}"]`)) {
+                            container.insertAdjacentHTML('afterbegin', renderPostCard(newPost));
+                            attachPostEventListeners();
+                            container.scrollTop = 0;
+                        }
+                    } else { loadFeed(1); }
+                } else if (S.dp === 'profile' && S.profileUser) {
+                    const res2 = await apiCall(`/users/${S.profileUser._id}/profile`);
+                    renderUserProfile(res2.data);
+                }
+                if (!S.myPostTitles.includes(title)) S.myPostTitles.push(title);
+            } catch (err) { toast('Failed to create post: ' + err.message, 'error'); } finally { hideLoading(); }
+        }
+
+        // ─── LOAD FEED ──────────────────────────────────────────────────
         async function loadFeed(page = 1) {
             const filter = S.feedFilter || 'all';
             if (page === 1) {
@@ -7171,338 +7501,6 @@
                 }
             }, { rootMargin: '0px 0px 200px 0px' });
             feedSentinelObserver.observe(sentinel);
-        }
-
-        function renderPostCard(post, scoreBadge = '') {
-            let author = post.authorId || post.author || {};
-            if (typeof author === 'string') {
-                if (author === S.user?._id) { author = S.user || { firstName: 'You', lastName: '', _id: author }; } else {
-                    author = { firstName: 'User', lastName: '', _id: author }; }
-            }
-            const avatarHtml = getAvatarUrl(author) ?
-                `<img src="${getAvatarUrl(author)}" alt="${author.firstName || 'U'}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` :
-                (author.firstName?.[0] || 'U');
-            const contentHtml = post.content ? (typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(post.content) : post
-                .content) : '';
-            const isAuthor = S.user?._id === author._id || S.user?._id === post.authorId?._id || S.user?._id === post
-                .authorId;
-            const isAdmin = S.user?.roles?.includes('admin');
-            const slug = post.slug || post._id;
-            const views = post.views || 0;
-            const postUrl = `${FRONTEND_URL}/post/${slug}`;
-            const likes = post.likes || 0;
-            const commentsCount = post.commentsCount || 0;
-            const shares = post.shares || 0;
-            const userLiked = post.userLiked || false;
-
-            // Truncate content for "Show more"
-            const contentPreview = contentHtml.length > 300 ? contentHtml.substring(0, 300) + '...' : contentHtml;
-            const needsExpand = contentHtml.length > 300;
-
-            return `
-                <div class="post-card" data-post-id="${post._id}">
-                    <div class="post-header">
-                        <div class="post-author-avatar" onclick="openUserProfile('${author._id || post.authorId}')">
-                            ${avatarHtml}
-                        </div>
-                        <div class="post-author-info">
-                            <strong onclick="openUserProfile('${author._id || post.authorId}')">${escapeHtml(author.firstName || 'User')} ${escapeHtml(author.lastName || '')}</strong>
-                            <span class="post-date">${new Date(post.publishedAt || post.createdAt).toLocaleDateString()} · <span class="badge badge-cyan" style="font-size:.55rem">${post.type || 'article'}</span>${isAuthor ? ' · <span class="badge badge-dark" style="font-size:.55rem">You</span>' : ''}${post.isPremiumOnly ? ' · <span class="badge badge-gold" style="font-size:.55rem">Premium</span>' : ''}${scoreBadge}</span>
-                        </div>
-                        <div style="margin-left:auto;display:flex;gap:.2rem">
-                            ${isAuthor || isAdmin ? `<button class="post-delete-btn" onclick="deletePost('${post._id}')" title="Delete post"><i class="fas fa-trash"></i></button>` : ''}
-                            ${isAuthor ? `<button class="post-edit-btn" onclick="editPost('${post._id}')" title="Edit post"><i class="fas fa-edit"></i></button>` : ''}
-                        </div>
-                    </div>
-                    <h3 class="post-title" onclick="window.location.href='${postUrl}'">${escapeHtml(post.title)}</h3>
-                    ${post.featuredImage ? `<img src="${post.featuredImage}" class="post-image" alt="featured" loading="lazy">` : ''}
-                    ${post.videoUrl ? `<video controls style="max-width:100%;border-radius:var(--radius-sm);margin:.75rem 0;"><source src="${post.videoUrl}" type="video/mp4"></video>` : ''}
-                    <div class="post-content ${needsExpand ? '' : 'expanded'}">
-                        <span class="post-content-preview">${contentPreview}</span>
-                        ${needsExpand ? `<span class="post-content-expanded">${contentHtml}</span><span class="post-content-toggle" onclick="togglePostContent(this)">Show more</span>` : ''}
-                    </div>
-                    <div class="post-stats">
-                        <span><i class="fas fa-eye stat-icon"></i> ${views}</span>
-                        <span id="post-likes-count-${post._id}"><i class="fas fa-heart stat-icon" style="color:${userLiked ? 'var(--danger)' : 'var(--text3)'}"></i> ${likes}</span>
-                        <span onclick="toggleComments('${post._id}')" style="cursor:pointer"><i class="fas fa-comment stat-icon"></i> ${commentsCount}</span>
-                        <span><i class="fas fa-share-alt stat-icon"></i> ${shares}</span>
-                        ${post.earnings > 0 ? `<span class="badge badge-gold" style="font-size:.6rem">🏆 +${fmtMoneyAPI(post.earnings)}</span>` : ''}
-                    </div>
-                    <div class="post-actions">
-                        <button class="action-btn ${userLiked ? 'liked' : ''}" onclick="likePost('${post._id}')"><span class="btn-icon"><i class="fas ${userLiked ? 'fa-heart' : 'fa-heart'}"></i></span><span class="action-label">${userLiked ? 'Liked' : 'Like'}</span></button>
-                        <button class="action-btn" onclick="toggleComments('${post._id}')"><span class="btn-icon"><i class="fas fa-comment"></i></span><span class="action-label">Comment</span></button>
-                        <button class="action-btn" onclick="openShareModal('${post._id}','${slug}')"><span class="btn-icon"><i class="fas fa-share-alt"></i></span><span class="action-label">Share</span></button>
-                    </div>
-                    <div class="comments-section" style="display:none;" data-post-id="${post._id}"></div>
-                </div>
-            `;
-        }
-
-        function togglePostContent(btn) {
-            const container = btn.closest('.post-content');
-            if (!container) return;
-            container.classList.toggle('expanded');
-            btn.textContent = container.classList.contains('expanded') ? 'Show less' : 'Show more';
-        }
-
-        function filterFeed(type, el) {
-            if (el) { document.querySelectorAll('.feed-tabs .fpill').forEach(p => p.classList.remove('active'));
-                el.classList.add('active'); }
-            S.feedFilter = type;
-            feedPage = 1;
-            feedHasMore = true;
-            const container = document.getElementById('feedContainer');
-            if (container) container.innerHTML = '';
-            loadFeed(1);
-        }
-
-        function attachPostEventListeners() {
-            document.querySelectorAll('.btn-like').forEach(btn => { btn.onclick = () => likePost(btn.dataset.id); });
-            document.querySelectorAll('.btn-comment').forEach(btn => { btn.onclick = () => toggleComments(btn.dataset.id); });
-        }
-
-        async function likePost(postId) {
-            try {
-                const res = await apiCall(`${POSTS_API}/${postId}/like`, { method: 'POST' });
-                if (res.success) {
-                    const countEl = document.getElementById(`post-likes-count-${postId}`);
-                    if (countEl) {
-                        const icon = countEl.querySelector('i');
-                        if (icon) icon.style.color = res.liked ? 'var(--danger)' : 'var(--text3)';
-                        countEl.innerHTML = `<i class="fas fa-heart stat-icon" style="color:${res.liked ? 'var(--danger)' : 'var(--text3)'}"></i> ${res.likes || 0}`;
-                    }
-                    // Update the action button
-                    const btn = document.querySelector(`.post-actions .action-btn[onclick*="likePost('${postId}')"]`);
-                    if (btn) {
-                        btn.classList.toggle('liked', res.liked);
-                        const label = btn.querySelector('.action-label');
-                        if (label) label.textContent = res.liked ? 'Liked' : 'Like';
-                        const icon = btn.querySelector('.btn-icon i');
-                        if (icon) icon.className = `fas ${res.liked ? 'fa-heart' : 'fa-heart'}`;
-                    }
-                    toast(res.liked ? 'Liked!' : 'Unliked', 'success');
-                }
-            } catch (err) { toast('Error liking post', 'error'); }
-        }
-
-        async function toggleComments(postId) {
-            const section = document.querySelector(`.comments-section[data-post-id="${postId}"]`);
-            if (!section) return;
-            if (section.style.display === 'none') { section.style.display = 'block';
-                await loadComments(postId); } else { section.style.display = 'none'; }
-        }
-
-        async function loadComments(postId) {
-            const section = document.querySelector(`.comments-section[data-post-id="${postId}"]`);
-            try {
-                const res = await apiCall(`${POSTS_API}/${postId}/comments`);
-                const comments = res.data || [];
-                section.innerHTML = `
-                    <div class="comment-input"><textarea placeholder="Write a comment..." id="commentText-${postId}"></textarea><button class="btn-primary btn-sm" onclick="addComment('${postId}')">Post</button></div>
-                    <div class="comments-list" id="commentsList-${postId}">
-                        ${comments.map(c => {
-                            const replyCount = c.replies?.length || 0;
-                            return `
-                                <div class="comment-item" data-comment-id="${c._id}">
-                                    <div class="comment-header"><strong>${escapeHtml(c.userId?.firstName || 'User')}</strong><span class="comment-date">${new Date(c.createdAt).toLocaleDateString()}</span></div>
-                                    <div class="comment-body">${escapeHtml(c.content)}</div>
-                                    <div class="comment-actions">
-                                        <span class="comment-like ${c.userLiked ? 'liked' : ''}" onclick="likeComment('${c._id}')"><i class="fas fa-heart"></i> ${c.likes || 0}</span>
-                                        <span class="comment-reply" onclick="showReplyInput('${c._id}')"><i class="fas fa-reply"></i> Reply</span>
-                                        ${replyCount > 0 ? `<span class="comment-replies-count">💬 ${replyCount} replies</span>` : ''}
-                                    </div>
-                                    <div class="reply-input-container" id="replyInput-${c._id}" style="display:none;margin-top:.5rem;">
-                                        <div class="d-flex gap-2"><input type="text" class="finput" id="replyText-${c._id}" placeholder="Write a reply..." /><button class="btn btn-primary btn-sm" onclick="submitReply('${c._id}')"><i class="fas fa-paper-plane"></i></button></div>
-                                    </div>
-                                    ${c.replies?.length ? `
-                                        <div class="replies-container" style="margin-top:.5rem;padding-left:1.5rem;border-left:2px solid var(--border);">
-                                            ${c.replies.map(r => `
-                                                <div class="comment-item reply-item">
-                                                    <div class="comment-header"><strong>${escapeHtml(r.userId?.firstName || 'User')}</strong><span class="comment-date">${new Date(r.createdAt).toLocaleDateString()}</span></div>
-                                                    <div class="comment-body">${escapeHtml(r.content)}</div>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                    ` : ''}
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                `;
-            } catch (err) { section.innerHTML = '<p>Failed to load comments</p>'; }
-        }
-
-        function showReplyInput(commentId) {
-            const container = document.getElementById(`replyInput-${commentId}`);
-            if (container) {
-                container.style.display = container.style.display === 'none' ? 'block' : 'none';
-                const input = document.getElementById(`replyText-${commentId}`);
-                if (input) input.focus();
-            }
-        }
-
-        async function submitReply(commentId) {
-            const input = document.getElementById(`replyText-${commentId}`);
-            const content = input?.value.trim();
-            if (!content) { toast('Please enter a reply', 'error'); return; }
-            const postId = document.querySelector('.comments-section')?.dataset.postId;
-            if (!postId) { toast('Error: Post not found', 'error'); return; }
-            try {
-                await apiCall(`/posts/${postId}/comment`, {
-                    method: 'POST',
-                    body: { content, parentId: commentId }
-                });
-                toast('✅ Reply posted!', 'success');
-                input.value = '';
-                loadComments(postId);
-            } catch (err) {
-                toast('Failed to post reply: ' + err.message, 'error');
-            }
-        }
-
-        async function addComment(postId) {
-            const textarea = document.getElementById(`commentText-${postId}`);
-            const content = textarea?.value.trim();
-            if (!content) return;
-            try { await apiCall(`${POSTS_API}/${postId}/comment`, { method: 'POST', body: { content } });
-                toast('Comment added', 'success');
-                textarea.value = '';
-                loadComments(postId); } catch (err) { toast('Failed to add comment', 'error'); }
-        }
-
-        async function likeComment(commentId) {
-            try { await apiCall(`${POSTS_API}/comment/${commentId}/like`, { method: 'POST' });
-                toast('Liked comment', 'success');
-                // Update UI
-                const commentItem = document.querySelector(`.comment-item[data-comment-id="${commentId}"]`);
-                if (commentItem) {
-                    const likeSpan = commentItem.querySelector('.comment-like');
-                    if (likeSpan) {
-                        const current = parseInt(likeSpan.textContent.match(/\d+/)?.[0] || 0);
-                        const isLiked = likeSpan.classList.contains('liked');
-                        likeSpan.classList.toggle('liked');
-                        const newCount = isLiked ? current - 1 : current + 1;
-                        likeSpan.innerHTML = `<i class="fas fa-heart"></i> ${newCount}`;
-                    }
-                }
-            } catch (err) { toast('Error', 'error'); }
-        }
-
-        async function deletePost(postId) {
-            if (!confirm('Delete this post permanently?')) return;
-            try {
-                const isAdmin = S.user?.roles?.includes('admin');
-                const endpoint = isAdmin ? `/admin/posts/${postId}` : `${POSTS_API}/${postId}`;
-                await apiCall(endpoint, { method: 'DELETE' });
-                toast('Post deleted', 'success');
-                try {
-                    const cached = JSON.parse(localStorage.getItem('cx_feed_posts') || '[]');
-                    const updated = cached.filter(p => p._id !== postId);
-                    localStorage.setItem('cx_feed_posts', JSON.stringify(updated));
-                } catch (e) {}
-                if (S.dp === 'feed') loadFeed(feedPage);
-                if (S.dp === 'profile' && S.profileUser) {
-                    const res = await apiCall(`/users/${S.profileUser._id}/profile`);
-                    renderUserProfile(res.data);
-                }
-                if (S.dp === 'admin' && S.admSec === 'users') {
-                    switchAdm('users', document.querySelector('#dash-admin .fpill.active'));
-                }
-            } catch (err) { toast('Failed to delete: ' + err.message, 'error'); }
-        }
-
-        function editPost(postId) { toast('Edit functionality coming soon!', 'info'); }
-
-        function openCreatePostModal() {
-            const modal = document.getElementById('createPostModal');
-            if (modal) {
-                openModal('createPostModal');
-                const warning = document.getElementById('postDuplicateWarning');
-                if (warning) warning.classList.remove('show');
-                document.getElementById('postTitle').value = '';
-                if (S.postQuill) S.postQuill.root.innerHTML = '';
-                loadMyPostTitles();
-            }
-        }
-
-        function initPostQuill() {
-            if (S.postQuill) { try { S.postQuill.focus(); } catch (e) {} return; }
-            const el = document.getElementById('postEditor');
-            if (!el || typeof Quill === 'undefined') { setTimeout(initPostQuill, 300); return; }
-            try {
-                S.postQuill = new Quill('#postEditor', { theme: 'snow', placeholder: 'Write your post content here...',
-                    modules: { toolbar: [
-                            ['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                            ['link', 'image', 'code-block'], ['clean']
-                        ] } });
-                if (!S.postQuill.root.innerHTML || S.postQuill.root.innerHTML === '<p><br></p>') { S.postQuill.root
-                        .innerHTML = ''; }
-            } catch (e) { console.warn('Quill init error:', e);
-                setTimeout(initPostQuill, 500); }
-        }
-
-        async function submitNewPost() {
-            const title = document.getElementById('postTitle')?.value.trim();
-            const type = document.getElementById('postType')?.value || 'article';
-            let content = '';
-            if (S.postQuill) { content = S.postQuill.root.innerHTML; } else {
-                const editorEl = document.getElementById('postEditor');
-                if (editorEl) content = editorEl.innerHTML || '';
-            }
-            const tags = document.getElementById('postTags')?.value || '';
-            const featuredImage = document.getElementById('postImage')?.value || '';
-            const seoTitle = document.getElementById('postSeoTitle')?.value || '';
-            const seoDesc = document.getElementById('postSeoDesc')?.value || '';
-            const videoFile = document.getElementById('postVideoInput')?.files[0];
-
-            if (!title) { toast('Please enter a title', 'error'); return; }
-            const isDuplicate = S.myPostTitles.some(t => t.toLowerCase() === title.toLowerCase());
-            if (isDuplicate) {
-                toast('⚠️ You already have a post with this title. Please use a different title.', 'error');
-                document.getElementById('postDuplicateWarning').classList.add('show');
-                return;
-            }
-            if (!content || content === '<p><br></p>' || content.trim() === '') { toast('Please write some content for your post',
-                    'error'); return; }
-            showLoading('Publishing post...');
-            try {
-                const res = await apiCall(POSTS_API, { method: 'POST', body: { title, content, type, tags,
-                        featuredImage, seoTitle, seoDescription: seoDesc, isPublished: true } });
-                const newPost = res.data || res;
-                const postId = newPost._id;
-                if (postId && videoFile) {
-                    const formData = new FormData();
-                    formData.append('video', videoFile);
-                    const token = localStorage.getItem('cx_accessToken');
-                    await fetch(`${API_BASE}/posts/${postId}/video`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
-                        body: formData });
-                }
-                updateSEO(newPost);
-                toast('✅ Post published!', 'success');
-                closeModal('createPostModal');
-                document.getElementById('postTitle').value = '';
-                document.getElementById('postTags').value = '';
-                document.getElementById('postImage').value = '';
-                document.getElementById('postSeoTitle').value = '';
-                document.getElementById('postSeoDesc').value = '';
-                document.getElementById('postVideoInput').value = '';
-                if (S.postQuill) S.postQuill.root.innerHTML = '';
-                cacheFeedPosts([newPost]);
-                if (S.dp === 'feed' || S.dp === 'home') {
-                    const container = document.getElementById('feedContainer');
-                    if (container) {
-                        if (!container.querySelector(`[data-post-id="${postId}"]`)) {
-                            container.insertAdjacentHTML('afterbegin', renderPostCard(newPost));
-                            attachPostEventListeners();
-                            container.scrollTop = 0;
-                        }
-                    } else { loadFeed(1); }
-                } else if (S.dp === 'profile' && S.profileUser) {
-                    const res2 = await apiCall(`/users/${S.profileUser._id}/profile`);
-                    renderUserProfile(res2.data);
-                }
-                if (!S.myPostTitles.includes(title)) S.myPostTitles.push(title);
-            } catch (err) { toast('Failed to create post: ' + err.message, 'error'); } finally { hideLoading(); }
         }
 
         // ================================================================
@@ -9970,7 +9968,7 @@
             const showAds = !S.isPremium;
             const adFrequency = 3;
             books.filter(b => b.isPublished !== false).forEach((book, index) => {
-                const isOwner = book.uploadedBy?._id === S.user?._id || book.uploadedBy === S.user?._id;
+                const isOwner = book.authorId?._id === S.user?._id || book.authorId === S.user?._id;
                 let statusBadge = '';
                 if (isOwner && book.approvalStatus === 'pending') {
                     statusBadge = `<span class="badge badge-orange" style="font-size:.55rem">⏳ Pending</span>`;
@@ -10205,19 +10203,18 @@
         }
 
         // ─── BOOK UPLOAD (Premium) ─────────────────────────────────────
-        function previewBookCoverUpload(input) {
-            const file = input.files[0];
-            if (file) {
-                const preview = document.getElementById('bookUploadCoverPreview');
-                const img = document.getElementById('bookUploadCoverPreviewImg');
+        function previewBookUploadCover(input) {
+            const preview = document.getElementById('bookUploadCoverPreview');
+            const img = document.getElementById('bookUploadCoverPreviewImg');
+            if (input.files && input.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    img.src = e.target.result;
                     preview.style.display = 'block';
+                    img.src = e.target.result;
                 };
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(input.files[0]);
             } else {
-                document.getElementById('bookUploadCoverPreview').style.display = 'none';
+                preview.style.display = 'none';
             }
         }
 
@@ -10228,77 +10225,6 @@
             } else {
                 preview.style.display = 'none';
             }
-        }
-
-        async function submitBookForApproval() {
-            if (!S.isPremium) {
-                toast('Premium required to upload books', 'warning');
-                openModal('premiumModal');
-                return;
-            }
-            const title = document.getElementById('bookUploadTitle').value.trim();
-            const author = document.getElementById('bookUploadAuthor').value.trim();
-            const description = document.getElementById('bookUploadDesc').value.trim();
-            const price = parseFloat(document.getElementById('bookUploadPrice').value) || 0;
-            const coverFile = document.getElementById('bookUploadCoverFile').files[0];
-            const fileUrl = document.getElementById('bookUploadFile').value.trim();
-            const affiliatePercent = parseFloat(document.getElementById('bookUploadAffiliate').value) || 0;
-
-            if (!title) { toast('Please enter a title', 'error'); return; }
-            if (!author) { toast('Please enter an author', 'error'); return; }
-            if (!fileUrl) { toast('Please provide a PDF URL', 'error'); return; }
-
-            showLoading('Submitting book for approval...');
-            try {
-                // Upload cover image if provided
-                let coverImageUrl = '';
-                if (coverFile) {
-                    const formData = new FormData();
-                    formData.append('image', coverFile);
-                    const token = localStorage.getItem('cx_accessToken');
-                    const uploadRes = await fetch(`${API_BASE}/admin/upload`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
-                        body: formData });
-                    const uploadData = await uploadRes.json();
-                    if (uploadData.success) coverImageUrl = uploadData.data.url;
-                }
-
-                const res = await apiCall('/books', {
-                    method: 'POST',
-                    body: { title, author, description, price, coverImage: coverImageUrl, fileUrl,
-                        affiliatePercent, isPremium: false, approvalStatus: 'pending' }
-                });
-
-                if (res.success) {
-                    toast('✅ Book submitted for admin approval!', 'success');
-                    resetBookUploadForm();
-                    document.getElementById('bookUploadStatus').style.display = 'block';
-                    document.getElementById('bookUploadStatus').innerHTML = `
-                        <div class="d-flex items-center gap-3">
-                            <div class="si si-gold"><i class="fas fa-clock"></i></div>
-                            <div><strong>Book submitted!</strong><p style="margin:0;font-size:.82rem;color:var(--text2);">Your book "${title}" is pending admin approval. You'll be notified once reviewed.</p></div>
-                        </div>
-                    `;
-                    await loadBooks();
-                } else {
-                    toast(res.message || 'Failed to submit', 'error');
-                }
-            } catch (err) {
-                toast('Error: ' + err.message, 'error');
-            } finally {
-                hideLoading();
-            }
-        }
-
-        function resetBookUploadForm() {
-            document.getElementById('bookUploadTitle').value = '';
-            document.getElementById('bookUploadAuthor').value = '';
-            document.getElementById('bookUploadDesc').value = '';
-            document.getElementById('bookUploadPrice').value = '0';
-            document.getElementById('bookUploadCoverFile').value = '';
-            document.getElementById('bookUploadFile').value = '';
-            document.getElementById('bookUploadAffiliate').value = '0';
-            document.getElementById('bookUploadCoverPreview').style.display = 'none';
-            document.getElementById('bookUploadFilePreview').style.display = 'none';
         }
 
         // ─── SUBMIT BOOK FOR REVIEW (Premium Users) ────────────────────
@@ -10313,24 +10239,25 @@
             document.getElementById('submitBookDesc').value = '';
             document.getElementById('submitBookPrice').value = '0';
             document.getElementById('submitBookCoverFile').value = '';
-            document.getElementById('submitBookFile').value = '';
             document.getElementById('submitBookCoverPreview').style.display = 'none';
+            document.getElementById('submitBookFile').value = '';
             document.getElementById('submitBookFilePreview').style.display = 'none';
             document.getElementById('submitBookProgress').style.display = 'none';
             openModal('submitBookModal');
         }
 
         function previewSubmitBookCover(input) {
-            const file = input.files[0];
-            if (file) {
-                const preview = document.getElementById('submitBookCoverPreview');
-                const img = document.getElementById('submitBookCoverPreviewImg');
+            const preview = document.getElementById('submitBookCoverPreview');
+            const img = document.getElementById('submitBookCoverPreviewImg');
+            if (input.files && input.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    img.src = e.target.result;
                     preview.style.display = 'block';
+                    img.src = e.target.result;
                 };
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
             }
         }
 
@@ -10353,6 +10280,7 @@
 
             if (!title) { toast('Please enter a title', 'error'); return; }
             if (!author) { toast('Please enter an author', 'error'); return; }
+            if (!coverFile) { toast('Please select a cover image', 'error'); return; }
             if (!file) { toast('Please select a PDF file', 'error'); return; }
 
             const formData = new FormData();
@@ -10360,9 +10288,9 @@
             formData.append('author', author);
             formData.append('description', description);
             formData.append('price', String(price));
-            formData.append('isPremium', 'false');
-            if (coverFile) formData.append('coverImage', coverFile);
+            formData.append('coverImage', coverFile);
             formData.append('file', file);
+            formData.append('isPremium', 'false');
 
             const progressEl = document.getElementById('submitBookProgress');
             if (progressEl) {
@@ -10432,6 +10360,104 @@
                     progressEl.style.display = 'none';
                     progressEl.textContent = '';
                 }
+                hideLoading();
+            }
+        }
+
+        async function submitBookForApproval() {
+            if (!S.isPremium) {
+                toast('Premium required to upload books', 'warning');
+                openModal('premiumModal');
+                return;
+            }
+            const title = document.getElementById('bookUploadTitle').value.trim();
+            const author = document.getElementById('bookUploadAuthor').value.trim();
+            const description = document.getElementById('bookUploadDesc').value.trim();
+            const price = parseFloat(document.getElementById('bookUploadPrice').value) || 0;
+            const coverFile = document.getElementById('bookUploadCoverFile').files[0];
+            const fileUrl = document.getElementById('bookUploadFile').value.trim();
+            const affiliatePercent = parseFloat(document.getElementById('bookUploadAffiliate').value) || 0;
+
+            if (!title) { toast('Please enter a title', 'error'); return; }
+            if (!author) { toast('Please enter an author', 'error'); return; }
+            if (!coverFile && !document.getElementById('bookUploadCoverPreview').style.display === 'block') {
+                toast('Please upload a cover image', 'error');
+                return;
+            }
+            if (!fileUrl) { toast('Please provide a PDF URL', 'error'); return; }
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('author', author);
+            formData.append('description', description);
+            formData.append('price', String(price));
+            if (coverFile) formData.append('coverImage', coverFile);
+            formData.append('fileUrl', fileUrl);
+            formData.append('affiliatePercent', String(affiliatePercent));
+            formData.append('isPremium', 'false');
+
+            showLoading('Submitting book for approval...');
+            try {
+                const token = localStorage.getItem('cx_accessToken');
+                const xhr = new XMLHttpRequest();
+                xhr.timeout = 300000;
+
+                xhr.upload.onprogress = (event) => {
+                    if (event.lengthComputable) {
+                        const pct = Math.round((event.loaded / event.total) * 100);
+                        const progressEl = document.getElementById('bookUploadCoverProgress');
+                        if (progressEl) progressEl.textContent = `Uploading cover... ${pct}%`;
+                        const loadingText = document.getElementById('loadingText');
+                        if (loadingText) loadingText.textContent = `Uploading book... ${pct}%`;
+                    }
+                };
+
+                xhr.onload = function() {
+                    hideLoading();
+                    try {
+                        const data = JSON.parse(xhr.responseText);
+                        if (data.success) {
+                            toast('✅ Book submitted for admin approval!', 'success');
+                            document.getElementById('bookUploadStatus').style.display = 'block';
+                            document.getElementById('bookUploadStatus').innerHTML = `
+                                <div class="d-flex items-center gap-3">
+                                    <div class="si si-gold"><i class="fas fa-clock"></i></div>
+                                    <div><strong>Book submitted!</strong><p style="margin:0;font-size:.82rem;color:var(--text2);">Your book "${title}" is pending admin approval. You'll be notified once reviewed.</p></div>
+                                </div>
+                            `;
+                            document.getElementById('bookUploadTitle').value = '';
+                            document.getElementById('bookUploadAuthor').value = '';
+                            document.getElementById('bookUploadDesc').value = '';
+                            document.getElementById('bookUploadPrice').value = '0';
+                            document.getElementById('bookUploadCoverFile').value = '';
+                            document.getElementById('bookUploadCoverPreview').style.display = 'none';
+                            document.getElementById('bookUploadFile').value = '';
+                            document.getElementById('bookUploadFilePreview').style.display = 'none';
+                            document.getElementById('bookUploadAffiliate').value = '0';
+                            await loadBooks();
+                        } else {
+                            toast(data.message || 'Failed to submit', 'error');
+                        }
+                    } catch (e) {
+                        toast('Invalid server response', 'error');
+                    }
+                };
+
+                xhr.onerror = function() {
+                    hideLoading();
+                    toast('Network error – please check your connection', 'error');
+                };
+
+                xhr.ontimeout = function() {
+                    hideLoading();
+                    toast('Upload timed out. Please try again.', 'error');
+                };
+
+                xhr.open('POST', `${API_BASE}/books`);
+                xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+                xhr.send(formData);
+            } catch (err) {
+                toast('Error: ' + err.message, 'error');
                 hideLoading();
             }
         }
@@ -11688,8 +11714,7 @@
         async function fetchLandingBooks() {
             try {
                 const res = await apiCall(BOOKS_API);
-                const books = (res.data || []).filter(b => b.isPublished !== false && b.approvalStatus === 'approved').slice(
-                0, 3);
+                const books = (res.data || []).filter(b => b.isPublished !== false).slice(0, 3);
                 const container = document.getElementById('landingBooksGrid');
                 if (!container) return;
                 if (!books.length) { container.innerHTML = '<div class="empty-state"><p>Books coming soon</p></div>'; return; }
@@ -12165,36 +12190,34 @@
                 .content) : '';
             const earnings = post.earnings || 0;
             const views = post.views || 0;
-            const likes = post.likes || 0;
-            const commentsCount = post.commentsCount || 0;
-            const shares = post.shares || 0;
-            const userLiked = post.userLiked || false;
-            const needsExpand = contentHtml.length > 300;
 
             container.innerHTML = `
                 <div class="post-card card card-p">
                     <div class="post-header">
-                        <div class="post-author-avatar" onclick="openUserProfile('${author._id}')">${avatarHtml}</div>
-                        <div class="post-author-info"><strong onclick="openUserProfile('${author._id}')" style="cursor:pointer">${escapeHtml(author.firstName || 'User')} ${escapeHtml(author.lastName || '')}</strong><span class="post-date">${new Date(post.publishedAt || post.createdAt).toLocaleDateString()} · <span class="badge badge-cyan" style="font-size:.55rem">${post.type || 'article'}</span>${post.isPremiumOnly ? ' · <span class="badge badge-gold" style="font-size:.55rem">Premium</span>' : ''}</span></div>
+                        <div class="post-author-avatar" style="background:linear-gradient(135deg,var(--primary),var(--secondary));" onclick="openUserProfile('${author._id}')">${avatarHtml}</div>
+                        <div class="post-author-info"><strong onclick="openUserProfile('${author._id}')" style="cursor:pointer">${escapeHtml(author.firstName || 'User')} ${escapeHtml(author.lastName || '')}</strong><span class="post-date">${new Date(post.publishedAt || post.createdAt).toLocaleDateString()}</span><span class="badge badge-cyan" style="font-size:.55rem">${post.type || 'article'}</span>${post.isPremiumOnly ? '<span class="badge badge-gold" style="font-size:.55rem">Premium</span>' : ''}</div>
                     </div>
                     <h1 class="post-title" style="font-size:1.5rem;">${escapeHtml(post.title)}</h1>
                     ${post.featuredImage ? `<img src="${post.featuredImage}" class="post-image" alt="featured" loading="lazy">` : ''}
                     ${post.videoUrl ? `<video controls style="max-width:100%;border-radius:var(--radius-sm);margin:.75rem 0;"><source src="${post.videoUrl}" type="video/mp4"></video>` : ''}
-                    <div class="post-content ${needsExpand ? '' : 'expanded'}">
-                        <span class="post-content-preview">${needsExpand ? contentHtml.substring(0, 300) + '...' : contentHtml}</span>
-                        ${needsExpand ? `<span class="post-content-expanded">${contentHtml}</span><span class="post-content-toggle" onclick="togglePostContent(this)">Show more</span>` : ''}
-                    </div>
-                    <div class="post-stats">
-                        <span><i class="fas fa-eye stat-icon"></i> ${views}</span>
-                        <span id="post-likes-count-${post._id}"><i class="fas fa-heart stat-icon" style="color:${userLiked ? 'var(--danger)' : 'var(--text3)'}"></i> ${likes}</span>
-                        <span onclick="toggleComments('${post._id}')" style="cursor:pointer"><i class="fas fa-comment stat-icon"></i> ${commentsCount}</span>
-                        <span><i class="fas fa-share-alt stat-icon"></i> ${shares}</span>
-                        ${earnings > 0 ? `<span class="badge badge-gold">🏆 +${fmtMoneyAPI(earnings)}</span>` : ''}
-                    </div>
-                    <div class="post-actions">
-                        <button class="action-btn ${userLiked ? 'liked' : ''}" onclick="likePost('${post._id}')"><span class="btn-icon"><i class="fas ${userLiked ? 'fa-heart' : 'fa-heart'}"></i></span><span class="action-label">${userLiked ? 'Liked' : 'Like'}</span></button>
-                        <button class="action-btn" onclick="toggleComments('${post._id}')"><span class="btn-icon"><i class="fas fa-comment"></i></span><span class="action-label">Comment</span></button>
-                        <button class="action-btn" onclick="openShareModal('${post._id}','${post.slug}')"><span class="btn-icon"><i class="fas fa-share-alt"></i></span><span class="action-label">Share</span></button>
+                    <div class="post-content" style="font-size:1rem;line-height:1.8;color:var(--text2);margin:1rem 0;">${contentHtml}</div>
+                    <div class="post-stats"><span><i class="fas fa-eye"></i> ${views} views</span><span><i class="far fa-heart"></i> ${post.likes || 0}</span><span><i class="far fa-comment"></i> ${post.commentsCount || 0}</span><span><i class="fas fa-share-alt"></i> ${post.shares || 0}</span>${earnings > 0 ? `<span class="badge badge-gold">🏆 +${fmtMoneyAPI(earnings)}</span>` : ''}</div>
+                    <div class="post-actions-fb">
+                        <button class="btn-action btn-like ${post.userLiked ? 'liked' : ''}" data-id="${post._id}">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span class="action-label">Like</span>
+                            <span class="action-count ${post.userLiked ? 'liked' : ''}" id="like-count-${post._id}">${post.likes || 0}</span>
+                        </button>
+                        <button class="btn-action btn-comment" data-id="${post._id}">
+                            <i class="fas fa-comment"></i>
+                            <span class="action-label">Comment</span>
+                            <span class="action-count">${post.commentsCount || 0}</span>
+                        </button>
+                        <button class="btn-action btn-share" onclick="openShareModal('${post._id}','${post.slug}')">
+                            <i class="fas fa-share-alt"></i>
+                            <span class="action-label">Share</span>
+                            <span class="action-count">${post.shares || 0}</span>
+                        </button>
                     </div>
                     <div class="comments-section" data-post-id="${post._id}" style="display:block;margin-top:1rem;">
                         <div class="comment-input"><textarea placeholder="Write a comment..." id="commentText-${post._id}"></textarea><button class="btn-primary btn-sm" onclick="addComment('${post._id}')">Post</button></div>
@@ -12530,10 +12553,10 @@
         console.log('📚 Premium users can submit books for admin approval with status badges.');
         console.log('🔔 Online/Offline status: Live dot indicators on People, Following, and Profiles.');
         console.log('📬 Missed notifications delivered on reconnect.');
-        console.log('📸 Book cover upload: Premium users can upload cover images instead of just URLs.');
-        console.log('📝 Feed posts: "Show more" / "Show less" for long content (Facebook-style).');
-        console.log('❤️ Like, Comment, Share: Facebook-style interactive action buttons with counts.');
-        console.log('🏢 Platform Highlights: Powered by Xa Industries — Israel Wycliffe Dewa (CEO) & Ijigai Medugu (Support).');
+        console.log('📝 Facebook-style posts with "Show more" for long content.');
+        console.log('❤️ Facebook-style Like, Comment, Share buttons with counts and responsive design.');
+        console.log('🏢 About section with founders Israel Wycliffe Dewa & Ijigai Medugu, powered by ChangeX Industries.');
+        console.log('📷 Book cover upload: Premium users can upload cover images instead of URLs.');
         console.log('✅ Production-ready: All features optimized for growth, engagement, and profitability.');
     </script>
 </body>
