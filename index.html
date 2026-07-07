@@ -3764,11 +3764,9 @@
             font-size: .82rem;
             padding: .2rem 0;
             display: inline-block;
-            transition: color .2s;
         }
         .btn-readmore:hover {
             text-decoration: underline;
-            color: var(--primary-light);
         }
         .post-stats {
             display: flex;
@@ -5525,12 +5523,6 @@
             border: 1px solid rgba(251, 191, 36, .2);
             font-size: .55rem;
         }
-        .book-upload-form-fields {
-            display: block;
-        }
-        .book-upload-form-fields .form-group {
-            margin-bottom: 1rem;
-        }
     </style>
 </head>
 <body>
@@ -5765,7 +5757,7 @@
                         <div id="bookSponsorAdContainerDetail" class="ad-container"></div>
                     </div>
 
-                    <!-- UPLOAD BOOK (Premium Only) – COMPLETE FIXED FORM -->
+                    <!-- UPLOAD BOOK (Premium Only) - FIXED: Full form with all fields -->
                     <div id="dash-create-book" class="dash-sub premium-only" style="display:none;">
                         <div class="page-hd">
                             <h2 class="page-title">📚 Upload Book</h2>
@@ -5775,7 +5767,7 @@
                         <!-- Status message -->
                         <div id="bookUploadStatus" style="display:none;" class="card card-p mb-3"></div>
 
-                        <!-- Upload Form -->
+                        <!-- Upload Form - Complete with all fields -->
                         <div class="card card-p">
                             <div class="form-group">
                                 <label class="flabel">Book Title *</label>
@@ -6682,7 +6674,7 @@
                         setDP('home');
                         return;
                     }
-                    // Ensure the book upload form is visible
+                    // Ensure the form is visible
                     const container = document.getElementById('dash-create-book');
                     if (container) {
                         container.style.display = 'block';
@@ -6862,6 +6854,14 @@
                         }
                     }
                 });
+                socket.on('manual_payment_approved', (data) => {
+                    if (data.type === 'subscription') {
+                        S.isPremium = true;
+                        S.user.isPremium = true;
+                        updatePremiumUI();
+                        toast('👑 Premium activated via manual payment!', 'success');
+                    }
+                });
             } catch (e) { console.warn('Socket init failed:', e.message); }
         }
 
@@ -7003,6 +7003,7 @@
                 localStorage.setItem('cx_user', JSON.stringify(S.user)); } catch (e) { console.warn('Profile fetch failed:',
                     e.message); }
             updateUserUI();
+            updatePremiumUI();
             const targetPage = isFromLogin ? 'app' : (S.user.setupDone ? 'app' : 'setup');
             toast(isFromLogin ? `Welcome back, ${S.user?.firstName || 'User'}! 👋` :
                 `Welcome to ChangeX, ${S.user?.firstName || 'User'}! 🎉`, 'success');
@@ -7240,6 +7241,14 @@
             if (navCreateBook) navCreateBook.style.display = isPremium ? '' : 'none';
             const navPremUpload = document.getElementById('nav-premium-upload');
             if (navPremUpload) navPremUpload.style.display = isPremium ? '' : 'none';
+            // Ensure create-book dash-sub is visible for premium users
+            if (isPremium && S.dp === 'create-book') {
+                const container = document.getElementById('dash-create-book');
+                if (container) {
+                    container.style.display = 'block';
+                    container.classList.add('active');
+                }
+            }
             const upgradeBanner = document.getElementById('homeUpgradeBanner');
             if (upgradeBanner) upgradeBanner.style.display = isPremium ? 'none' : 'block';
             document.querySelectorAll('.premium-badge').forEach(el => {
@@ -7250,14 +7259,6 @@
             document.querySelectorAll('.ad-container').forEach(container => {
                 container.style.display = isPremium ? 'none' : '';
             });
-            // Ensure book upload form is visible for premium users
-            if (S.dp === 'create-book') {
-                const container = document.getElementById('dash-create-book');
-                if (container && isPremium) {
-                    container.style.display = 'block';
-                    container.classList.add('active');
-                }
-            }
             if ((S.dp === 'create-book' || S.dp === 'premium-upload-course') && !isPremium) {
                 toast('Premium required', 'warning');
                 setDP('home');
@@ -7683,7 +7684,7 @@
             feedSentinelObserver.observe(sentinel);
         }
 
-        // ─── POST CARD WITH READ MORE ──────────────────────────────────
+        // ─── POST CARD WITH READ MORE (FULLY FIXED) ──────────────────────
         function renderPostCard(post, scoreBadge = '') {
             let author = post.authorId || post.author || {};
             if (typeof author === 'string') {
@@ -7694,18 +7695,15 @@
                 `<img src="${getAvatarUrl(author)}" alt="${author.firstName || 'U'}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` :
                 (author.firstName?.[0] || 'U');
             const fullContent = post.content || '';
-            // ─── READ MORE LOGIC ──────────────────────────────────────────
-            // Create a temporary element to strip HTML tags for preview
+            // Generate plain text preview for "Read More" toggle
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = fullContent;
             const textContent = tempDiv.textContent || tempDiv.innerText || '';
             const previewText = textContent.length > 200 ? textContent.substring(0, 200) + '...' : textContent;
             const needsReadMore = textContent.length > 200;
-            // Sanitize full content for display (DOMPurify)
+            // Sanitize full content for display (DOMPurify) or fallback
             const contentHtml = fullContent ? (typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(fullContent) : fullContent) :
                 '';
-            // ─── END READ MORE LOGIC ──────────────────────────────────────
-
             const earnings = post.earnings || 0;
             const isAuthor = S.user?._id === author._id || S.user?._id === post.authorId?._id || S.user?._id === post
                 .authorId;
@@ -7743,7 +7741,12 @@
                     ${post.featuredImage ? `<img src="${post.featuredImage}" class="post-image" alt="featured" loading="lazy">` : ''}
                     ${post.videoUrl ? `<video controls style="max-width:100%;border-radius:var(--radius-sm);margin:.75rem 0;"><source src="${post.videoUrl}" type="video/mp4"></video>` : ''}
                     <div class="post-content" id="postContent-${post._id}">
-                        ${showFull ? contentHtml : `<div class="paywall-overlay"><i class="fas fa-lock" style="font-size:2rem;color:var(--gold);margin-bottom:.5rem;display:block;"></i><h3>🔒 Premium Article</h3><p>This article is paid. Purchase to read the full content.</p><button class="btn btn-primary" onclick="purchaseArticle('${post._id}')">Purchase — ${fmtMoneyAPI(post.price || 500)}</button></div>`}
+                        ${showFull ? `
+                            <span class="post-preview">${escapeHtml(previewText)}</span>
+                            ${needsReadMore ? `<span class="post-full" style="display:none;">${contentHtml}</span><button class="btn-readmore" onclick="togglePostContent('${post._id}')">Read more</button>` : ''}
+                        ` : `
+                            <div class="paywall-overlay"><i class="fas fa-lock" style="font-size:2rem;color:var(--gold);margin-bottom:.5rem;display:block;"></i><h3>🔒 Premium Article</h3><p>This article is paid. Purchase to read the full content.</p><button class="btn btn-primary" onclick="purchaseArticle('${post._id}')">Purchase — ${fmtMoneyAPI(post.price || 500)}</button></div>
+                        `}
                     </div>
                     <div class="post-stats">
                         <span><i class="fas fa-eye"></i> ${views}</span>
@@ -7762,7 +7765,7 @@
             `;
         }
 
-        // ─── TOGGLE READ MORE ──────────────────────────────────────────
+        // ─── TOGGLE READ MORE (FULLY FIXED) ──────────────────────────────
         function togglePostContent(postId) {
             const container = document.getElementById(`postContent-${postId}`);
             if (!container) return;
@@ -7935,6 +7938,7 @@
 
         function attachPostEventListeners() {
             document.querySelectorAll('.btn-comment').forEach(btn => { btn.onclick = () => toggleComments(btn.dataset.id); });
+            // Re-attach read-more listeners to ensure they work with dynamic content
             document.querySelectorAll('.btn-readmore').forEach(btn => {
                 btn.removeEventListener('click', btn._listener);
                 btn._listener = function(e) {
@@ -11007,7 +11011,7 @@
             }
         }
 
-        // ─── BOOK UPLOAD (Premium) ─────────────────────────────────────
+        // ─── BOOK UPLOAD (Premium) – FIXED ──────────────────────────────
         function previewBookCover(url) {
             const preview = document.getElementById('bookUploadCoverPreview');
             const img = document.getElementById('bookUploadCoverPreviewImg');
@@ -11043,17 +11047,26 @@
             const fileUrl = document.getElementById('bookUploadFile').value.trim();
             const affiliatePercent = parseFloat(document.getElementById('bookUploadAffiliate').value) || 0;
 
+            // Validation
             if (!title) { toast('Please enter a title', 'error'); return; }
             if (!author) { toast('Please enter an author', 'error'); return; }
             if (!fileUrl) { toast('Please provide a PDF URL', 'error'); return; }
 
+            const payload = {
+                title,
+                author,
+                description,
+                price,
+                coverImage,
+                fileUrl,
+                affiliatePercent,
+                isPublished: false,
+                status: 'pending'
+            };
+
             showLoading('Submitting book for approval...');
             try {
-                const res = await apiCall('/books', {
-                    method: 'POST',
-                    body: { title, author, description, price, coverImage, fileUrl, affiliatePercent, isPublished: false, status: 'pending' }
-                });
-
+                const res = await apiCall('/books', { method: 'POST', body: payload });
                 if (res.success) {
                     toast('✅ Book submitted for admin approval!', 'success');
                     document.getElementById('bookUploadStatus').style.display = 'block';
@@ -11068,6 +11081,7 @@
                             </div>
                         </div>
                     `;
+                    // Reset form
                     document.getElementById('bookUploadTitle').value = '';
                     document.getElementById('bookUploadAuthor').value = '';
                     document.getElementById('bookUploadDesc').value = '';
@@ -11223,7 +11237,7 @@
         }
 
         // ================================================================
-        // PURCHASED ARTICLES
+        // PURCHASED ARTICLES – FIXED WITH BETTER ERROR HANDLING
         // ================================================================
         async function loadPurchasedArticles() {
             try {
@@ -11236,17 +11250,21 @@
                     container.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>You haven\'t purchased any articles yet.</p></div>';
                     return;
                 }
-                container.innerHTML = articles.map(a => `
-                    <div class="card card-p mb-2" onclick="window.location.href='/post/${a.postId?.slug || a.postId}'">
-                        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
-                            <div>
-                                <strong>${escapeHtml(a.postId?.title || 'Article')}</strong>
-                                <div style="font-size:.75rem;color:var(--text3);">Purchased: ${new Date(a.createdAt).toLocaleDateString()}</div>
+                container.innerHTML = articles.map(a => {
+                    const post = a.postId || {};
+                    const slug = post.slug || a.postId || 'article';
+                    return `
+                        <div class="card card-p mb-2" onclick="window.location.href='/post/${slug}'">
+                            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
+                                <div>
+                                    <strong>${escapeHtml(post.title || 'Article')}</strong>
+                                    <div style="font-size:.75rem;color:var(--text3);">Purchased: ${new Date(a.createdAt).toLocaleDateString()}</div>
+                                </div>
+                                <span class="badge badge-success">✅ Purchased</span>
                             </div>
-                            <span class="badge badge-success">✅ Purchased</span>
                         </div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
             } catch (err) {
                 console.warn('Could not load purchased articles:', err);
                 const container = document.getElementById('purchasedArticlesList');
@@ -12601,6 +12619,7 @@
                             S.isPremium = true;
                             S.user.isPremium = true;
                             updateUserUI();
+                            updatePremiumUI();
                             toast('👑 Premium activated!', 'success');
                         }
                     } catch (e) { console.warn('Could not refresh purchase data after approval:', e); }
@@ -13483,6 +13502,7 @@
                 localStorage.setItem('cx_user', JSON.stringify(S.user));
             } catch (e) {}
             updateUserUI();
+            updatePremiumUI();
             if (S.user.roles?.includes('admin') || S.user.role === 'admin' || S.user.role === 'superadmin') {
                 document.getElementById('adminNavLi').style.display = 'block';
             }
